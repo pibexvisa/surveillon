@@ -1,0 +1,20 @@
+/*Cor da barra superior*/
+.navbar.navbar-inverse.navbar-fixed-top.navbar-fixed-top.surveillon{
+  background-color:#266936;
+}
+
+/*Cor do nome do Sistema na Barra superior*/
+.navbar-brand.surveillon{
+		 color:#ffffff;
+}
+
+.navbar-right > a.surveillon{
+   color: #ffffff;
+}
+.nav-sidebar > .active.surveillon > a
+/*.nav-sidebar > .active  a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus */{
+  color: #fff;
+  background-color: #5ABEE4;
+}
