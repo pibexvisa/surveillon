@@ -12,15 +12,15 @@
     <title>Surveillon</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 		
-		<link href="../css/surveillon.css" rel="stylesheet">
+		<link href="../../css/surveillon.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -31,34 +31,67 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+   
   </head>
 
   <body>
 
 		<!--Topo do Sistema-->
-    <?php include("../geral/topo.php");?>
+    <?php include("../../geral/topo.php");?>
 		<!--Fim do Topo do Sistema-->
 		
     <div class="container-fluid">
       <div class="row">
 			   <!--Lateral Esquerda-->
-         <?php include("../geral/sidebar.php");?>
+         <?php include("../../geral/sidebar.php");?>
 				<!--Fim Lateral Esquerda-->
 				<!--Area Central do Sistema-->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Sobre o Surveillon</h1>
+          <h1 class="page-header">Casos</h1>
+          <h4 class="sub-header">Novo Caso</h4>
+					<!--Incluir codigo aqui-->
           <div class="table-responsive">
-					<p style="font-size: 16px;">
-            O Surveillon foi concebido para auxiliar o gerenciamento da inspeção Sanitária da cidade de Camaragibe - PE. Sendo desenvolvido em parceria com professores e alunos do IFPE Campus Jaboatão dos Guararapes, este sistema é resultado de projeto submetido ao Programa de Extensão do Instituto Federal de Pernambuco, no ano de 2017, onde envolve alunos dos cursos Técnico em Informática para Internet e Técnico em Qualidade.<br><br>
-						<b>Coordenação do Projeto:</b> Profª Aline Clemente de Andrade<br>
-						<b>Orientação do Alunos do Técnico em Informática para Internet:</b> Profª Havana Alves<br>
-						<b>Equipe de Desenvolvimento:</b><br>
-						<b>2017:</b><br>
-						Alesson  Francisco da Silva<br>
-						Ruggery Gusmão
-						</p>
+          <form action="insert_caso.php" method="POST" > 
+      <div class="margimformadm">
+        <h1 class="hidden"><span id="logo">CADASTRAMENTO DE CASOS</span></h1>
+
+      <center><fieldset style=" width:800px"><table border="0">
+      <tr>
+        <td>Nome:</td>
+        <td>
+          <input type="text" name="nome" required="" autofocus="" class="form-control">
+        </td>
+      </tr>
+      <tr>
+          <td>Competência :</td>
+        <td>
+          <select name="competencia" required="" selected="" class="form-control">
+            <option></option>
+            <option value="Vigilância Sanitária"> Vigilância Sanitária</option>
+            <option value="Vigilância Ambiental"> Vigilância Ambiental  </option>
+            <option value="Vigilância Epidemiologica"> Vigilância Epidemiologica  </option>
+          </select>
+        </td>
+      </tr>
+      </tr>
+      <tr>
+        <td>Descrição :</td>
+        <td>
+
+          <textarea name="descricao" required=""  rows="4" cols="50" maxlength="200" class="form-control"> </textarea>
+          
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" value="Cadastrar" class="btn btn-lg btn-primary btn-block"></td>
+      </tr>
+    </table></fieldset></center>
+  </form> 
           </div>
-					<?php include("../geral/footer.php");?>
+          <!--Fim de inclusao de codigo-->
+					<?php include("../../geral/footer.php");?>
         </div>
 				<!--Fim da Area Central do Sistema-->
       </div>

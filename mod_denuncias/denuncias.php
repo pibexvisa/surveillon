@@ -42,7 +42,7 @@
     <div class="container-fluid">
       <div class="row">
 			   <!--Lateral Esquerda-->
-         <?php include("../geral/sidebar.php");?>
+         <?php include("../geral/sidebarDenuncia.php");?>
 				<!--Fim Lateral Esquerda-->
 				<!--Area Central do Sistema-->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

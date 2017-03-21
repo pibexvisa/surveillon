@@ -23,7 +23,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a class="surveillon"; href="http://getbootstrap.com/examples/dashboard/#">Fulano</a></li>
-						<li><a href="../inicio.php">Início</a></li>
+						<li><a href="inicio.php">Início</a></li>
             <li><a href="http://getbootstrap.com/examples/dashboard/#">Sobre o Surveillon</a></li>
             <li><a href="http://getbootstrap.com/examples/dashboard/#">Sair</a></li>
           </ul>
