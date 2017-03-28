@@ -8,14 +8,16 @@
             <span class="icon-bar"></span>
           </button>
 					<?php
+			
 					switch(basename(dirname($_SERVER['REQUEST_URI']))){
 						case "mod_denuncias":
 							$current_module = "Modulo de Denúncias";
 						break;
-						case "geral":
+						default:
 							$current_module = "Geral";
 						break;
 					}
+					
 					
 					?>
           <a class="navbar-brand surveillon" href="../inicio.php">Surveillon Camará - <?=$current_module;?></a>
