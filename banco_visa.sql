@@ -31,13 +31,13 @@ primary key(codigo)
 
 
 create table usuario(
-matricula varchar(10),
-senha varchar(100),
-cpf int(11) not null, 
-nome varchar(40) not null,
- email varchar(40) not null, 
-telefone int(11) not null, 
-perfil varchar(15) not null, 
+matricula VARCHAR(10) NOT NULL,
+senha VARCHAR(100) NOT NULL,
+cpf INT(11) NOT NULL, 
+nome VARCHAR(40) NOT NULL,
+ email VARCHAR(40) NOT NULL, 
+telefone INT(11) NOT NULL, 
+perfil VARCHAR(15) NOT NULL, 
 primary key(matricula)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8; 
 
