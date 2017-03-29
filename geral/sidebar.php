@@ -15,6 +15,6 @@
 						<li style="background-color:#cccccc;text-align:center;">Admin</li>
 						<li <?php echoActiveClassIfRequestMatches("casos"); ?>><a href="../casos/index.php">Casos</a></li>
 						<li <?php echoActiveClassIfRequestMatches("bairros"); ?>><a href="../bairro/index.php">Bairros</a></li>
-            <li <?php echoActiveClassIfRequestMatches("usuarios"); ?>><a href="../geral/usuarios.php">Usuários</a></li>
+            <li <?php echoActiveClassIfRequestMatches("usuarios"); ?>><a href="../usuario/usuarios.php">Usuários</a></li>
 					</ul>
 </div>

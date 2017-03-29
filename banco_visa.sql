@@ -31,7 +31,8 @@ primary key(codigo)
 
 
 create table usuario(
-matricula int AUTO_INCREMENT,
+matricula varchar(10),
+senha varchar(100),
 cpf int(11) not null, 
 nome varchar(40) not null,
  email varchar(40) not null, 
