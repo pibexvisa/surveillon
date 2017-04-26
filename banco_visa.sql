@@ -36,7 +36,7 @@ senha VARCHAR(100) NOT NULL,
 cpf INT(11) NOT NULL, 
 nome VARCHAR(40) NOT NULL,
  email VARCHAR(40) NOT NULL, 
-telefone INT(11) NOT NULL, 
+telefone INT(15) NOT NULL, 
 perfil VARCHAR(15) NOT NULL, 
 primary key(matricula)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8; 

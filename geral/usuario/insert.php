@@ -3,14 +3,15 @@ include ("../../conexao/conexao.php");
 
 $matricula = $_POST["matricula"];
 $senha = $_POST["senha"];
-$nome = $_POST["nome"];
 $cpf = $_POST["cpf"];
+$nome = $_POST["nome"];
 $email = $_POST["email"];
 $telefone = $_POST["telefone"];
 $perfil = $_POST["perfil"];
 
-$senhaCripto = password_hash($senha,PASSWORD_DEFAULT);
+//echo $matricula.$senha.$nome.$cpf.$email.$telefone.$perfil;
 
+$senhaCripto = password_hash($senha,PASSWORD_DEFAULT);
 
 $stmt = $conexao->prepare("insert into usuario (matricula, senha, cpf, nome, email, telefone, perfil) values (?,?,?,?,?,?,?)");
 
@@ -35,7 +36,6 @@ if($stmt->rowCount() >0){
 						location.href="../usuario/usuarios.php"
 					</script>';
 			}
-
 
 
 

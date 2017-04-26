@@ -12,9 +12,11 @@
             <li <?php echoActiveClassIfRequestMatches("denuncias"); ?>><a href="../../mod_denuncias/denuncias.php">Denúncias <span class="sr-only">(current)</span></a></li>
           </ul>
 					<ul class="nav nav-sidebar">
-						<li style="background-color:#cccccc;text-align:center;">Admin</li>
-						<li <?php echoActiveClassIfRequestMatches("casos"); ?>><a href="../casos/index.php">Casos</a></li>
-						<li <?php echoActiveClassIfRequestMatches("bairros"); ?>><a href="../bairro/index.php">Bairros</a></li>
-            <li <?php echoActiveClassIfRequestMatches("usuarios"); ?>><a href="../usuario/usuarios.php">Usuários</a></li>
+			<li style="background-color:#cccccc;text-align:center;">Admin</li>
+			<li <?php echoActiveClassIfRequestMatches("casos"); ?>><a href="../casos/index.php">Casos</a></li>
+			<li <?php echoActiveClassIfRequestMatches("bairros"); ?>><a href="../bairro/index.php">Bairros</a></li>
+			<li <?php echoActiveClassIfRequestMatches("visita"); ?>><a href="../visita/index.php">Visitas</a></li>
+                <li <?php echoActiveClassIfRequestMatches("usuarios"); ?>><a href="../usuario/index.php">Usuários</a></li>
+		
 					</ul>
 </div>
