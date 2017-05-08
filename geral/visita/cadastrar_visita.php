@@ -54,11 +54,10 @@
                 <div class="margimformadm">
                   <h1 class="hidden"><span id="logo">CADASTRAMENTO DE VISITAS</span></h1>
                   <?php include "../../conexao/conexao.php";?>
-                  <center><fieldset style=" width:800px"><table border="0">
-                    
-                    <table>
+                  <center><fieldset style=" width:800px"><table class="table table-striped" border="0">
+            
                      <tr>
-                      <td>Nome:</td>
+                      <td><b>Nome:</b></td>
                       <td>
                         <select name="matricula" required="" selected="" class="form-control">
                          <?php
@@ -76,20 +75,20 @@
                   </tr>
                   
                   <tr>
-                    <td>Data:</td>
+                    <td><b>Data:</b></td>
                     <td>
                       <input type="date" name="data"   required="" maxlength="10" placeholder="ex: dd-mm-aaaa" class="form-control">
                     </td>
                   </tr>
                 </tr>
                 <tr>
-                  <td>Hora:</td>
+                  <td><b>Hora:</b></td>
                   <td>
                     <input maxlength="8" name="hora"  placeholder="ex: 00:00:00"  required=""  class="form-control">
                   </td>
                 </tr>
                 <tr>
-                  <td>Observação :</td>
+                  <td><b>Observação:</b></td>
                   <td>
                     <textarea name="observacao"  required=""  rows="4" cols="50" maxlength="200" class="form-control"> </textarea> 
                   </td>

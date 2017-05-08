@@ -69,13 +69,13 @@
            <div class="margimformadm">
 
             <center><fieldset style=" width:800px">
-             <table border="0">
+             <table  class="table table-striped" border="0">
               <tr>
-               <td>Nome :</td>
+               <td><b>Nome:</b></td>
                <td><input class="form-control" type="text" name="nome"  value="<?php echo  $linha['nome'] ?>"></td>
              </tr>
              <tr>
-               <td>Competência :</td>
+               <td><b>Competência:</b></td>
                <td>
                  <?php	$array_teste = array('Vigilância Sanitária','Vigilância Ambiental','Vigilância Epidemiologica'); 
                  $valor_compara = $linha['competencia'];
@@ -88,7 +88,7 @@
              </td>
            </tr>
            <tr>
-             <td>Descrição :</td>
+             <td><b>Descrição:</b></td>
              <td><textarea class="form-control" name="descricao" required=""  rows="4" cols="50" maxlength="200"> <?php  echo $linha['descricao'] ?></textarea><td>
              </tr>
              <tr>

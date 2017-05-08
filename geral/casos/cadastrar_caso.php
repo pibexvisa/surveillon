@@ -55,18 +55,18 @@
           <div class="margimformadm">
             <h1 class="hidden"><span id="logo">CADASTRAMENTO DE CASOS</span></h1>
 
-            <center><fieldset style=" width:800px"><table border="0">
+            <center><fieldset style=" width:800px"><table  class="table table-striped" border="0">
               <tr>
-                <td>Nome:</td>
+                <td><b>Nome:</b></td>
                 <td>
                   <input type="text" name="nome" required="" autofocus="" class="form-control">
                 </td>
               </tr>
               <tr>
-                <td>Competência :</td>
+                <td><b>Competência:</b></td>
                 <td>
                   <select name="competencia" required="" selected="" class="form-control">
-                    <option></option>
+                    <option value="">Selecione uma competência</option>
                     <option value="Vigilância Sanitária"> Vigilância Sanitária</option>
                     <option value="Vigilância Ambiental"> Vigilância Ambiental  </option>
                     <option value="Vigilância Epidemiologica"> Vigilância Epidemiologica  </option>
@@ -75,7 +75,7 @@
               </tr>
             </tr>
             <tr>
-              <td>Descrição:</td>
+              <td><b>Descrição:</b></td>
               <td>
 
                 <textarea name="descricao" required=""  rows="4" cols="50" maxlength="200" class="form-control"> </textarea>

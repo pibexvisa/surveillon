@@ -66,27 +66,36 @@
   				?> 
   						<div id="header" > 
   							<!-- NOSEARCH -->
-  							<div id="toolbar"></div><br> 
+  						<div id="toolbar"></div><br> 
 
-  							<form action="update_bairros.php?codigo=<?php echo $linha['codigo']?>" method="POST" class="header"> 
-  								<div class="margimformadm">
+  				<form action="update_bairros.php?codigo=<?php echo $linha['codigo']?>" method="POST" class="header"> 
+  						<div class="margimformadm">
 
-  									<center><fieldset style=" width:400px"><table border="0">
-  										<tr>
-  											<td width=10%><b>Nome:</b></td>
-  											<td><input type="text" class="form-control" name="nome"  value="<?php echo $linha["nome"] ?>"></td>
-  										</tr>
-  										<tr>
-  											<td><b>Area:</b></td>
-  											<td><input type="text" class="form-control" name="area"  value="<?php echo $linha["area"] ?>"></td>
-  										</tr>			
-  										<tr>
-  											<td></td>
-  											<td  align="center"><input type="submit" class="btn btn-lg btn-primary btn-block" value="Enviar"></td>
-  										</tr>
-  									</table></fieldset></center>
-  								</form> 
-  							</div>
+  					<center><fieldset style=" width:400px"><table  class="table table-striped" border="0">
+  						<tr>
+  						<td width=10%><b>Nome:</b></td>
+  						<td><input type="text" class="form-control" name="nome"  value="<?php echo $linha["nome"] ?>"></td>
+  						</tr>
+  				<tr>
+  				<td><b>Area:</b></td>
+  				<td>
+                 		<?php	$array_teste = array('1','2','3','4','5'); 
+                 		$valor_compara = $linha['area'];
+                 		echo '<select name="area" class="form-control" id="select">';
+                 		foreach($array_teste as $val){
+                   		$sel = ($val == $valor_compara)?'selected="selected"':'';
+                   		echo '<option value="'.$val.'" '.$sel.'>'.$val.'</option>';
+                 		} ?>
+               </select>
+             </td>
+  					</tr>			
+  				<tr>
+  				<td></td>
+  				<td  align="center"><input type="submit" class="btn btn-lg btn-primary btn-block" value="Enviar"></td>
+  				</tr>
+  						</table></fieldset></center>
+  					</form> 
+  				</div>
 
   					<?php
   						} 

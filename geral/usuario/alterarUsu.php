@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0043)http://getbootstrap.com/examples/dashboard/ -->
-<html lang="en"><
+<html lang="en">
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/adm.css"/>
 	<meta charset="utf-8">
@@ -13,6 +13,13 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="icon" href="http://getbootstrap.com/favicon.ico">
+	
+	<link rel="stylesheet" type="text/css" href="../../css/cadastro.css"/>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery.js"></script>
+	<script type="text/javascript" src="../../js/jquery.validate.js"></script>
+	<script type="text/javascript" src="../../js/validaUsu.js"></script>
 
 	<title>Surveillon</title>
 
@@ -68,37 +75,34 @@
   				<!-- NOSEARCH -->
   				<div id="toolbar"></div><br> 
 
-  		<form action="updateUsu.php?matricula=<?php echo $linha['matricula']?>" method="POST" class="header"> 
+  		<form id="cadastro" action="updateUsu.php?matricula=<?php echo $linha['matricula']?>" method="POST" class="header"> 
   				<div class="margimformadm">
 
-  		<center><fieldset style=" width:400px"><table border="0">
-				<tr>
-  				<td width=10%><b>Matricula:</b></td>
-  				<td><input type="text" class="form-control" name="matricula"  value="<?php echo $linha["matricula"] ?>"></td>
-  				</tr>
-
-  			<tr>
-  			<td width=10%><b>Nome:</b></td>
+  		<center><ul>
+		<fieldset style=" width:400px"><table  border="0" class="table table-striped">
+				
+  			<tr><li>
+  			<td width=10%><label for="nome"><b>Nome:</b></label></td>
   			<td><input type="text" class="form-control" name="nome"  value="<?php echo $linha["nome"] ?>"></td>
-  			</tr>
-  				<tr>
-  				<td><b>Cpf:</b></td>
-  				<td><input type="text" class="form-control" name="cpf"  value="<?php echo $linha["cpf"] ?>"></td>
-  				</tr>			
+  			</li></tr>
+  				<tr><li>
+  				<td><label for="nome"><b>Cpf:</b></label></td>
+  				<td><input type="text" class="form-control" name="cpf" maxlength="11" value="<?php echo $linha["cpf"] ?>"></td>
+  				</li></tr>			
   			
 			
-			<tr>
-  			<td width=10%><b>Email:</b></td>
+			<tr><li>
+  			<td width=10%><label for="nome"><b>Email:</b></label></td>
   			<td><input type="text" class="form-control" name="email"  value="<?php echo $linha["email"] ?>"></td>
-  			</tr>
+  			</li></tr>
 
-				<tr>
-  				<td width=10%><b>Telefone:</b></td>
-  				<td><input type="text" class="form-control" name="telefone"  value="<?php echo $linha["telefone"] ?>"></td>
-  				</tr>
+			<tr><li>
+  			<td width=10%><label for="nome"><b>Telefone:</b></label></td>
+  			<td><input type="text" class="form-control" name="telefone" maxlength="11" value="<?php echo $linha["telefone"] ?>"></td>
+  				</li></tr>
 	
-		<tr>
-               <td><b>Tipo de perfil:</b></td>
+		<tr><li>
+               <td><label for="nome"><b>Tipo de perfil:</b></label></td>
                <td>
                   <?php	$array_teste = array('Administrador','Funcionário'); 
                  $valor_compara = $linha['perfil'];
@@ -109,13 +113,14 @@
                  } ?>
                </select>
              </td>
-           </tr>
+           </li></tr>
 	
 			<tr>
   			<td></td>
   			<td  align="center"><input type="submit" class="btn btn-lg btn-primary btn-block" value="Enviar"></td>
   			</tr>
-  				</table></fieldset></center>
+				</ul>
+  			</table></fieldset></center>
 			</form> 
   		</div>
 

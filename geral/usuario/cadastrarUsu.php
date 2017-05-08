@@ -9,6 +9,13 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
+	<link rel="stylesheet" type="text/css" href="../../css/cadastro.css"/>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery.js"></script>
+	<script type="text/javascript" src="../../js/jquery.validate.js"></script>
+	<script type="text/javascript" src="../../js/validaUsu.js"></script>
+
     <title>Surveillon</title>
 
     <!-- Bootstrap core CSS -->
@@ -49,51 +56,58 @@
           <h1 class="page-header">Usuarios</h1>
           <h4 class="sub-header">Novo Usuario</h4>
           <div class="table-responsive">
-		<form method="POST" action="insert.php">
+		<form id="cadastro" method="POST" action="insert.php">
 		<center><fieldset style=" width:800px">
 			
             <table class="table table-striped" border="0">
+	<ul>
 	
-	<tr>
-	<td><b>Matricula:*</b></td><td><input type="text" name="matricula" class="form-control" required></td>
-	</tr>
+	<tr><li>
+	<td><label for="nome"><b>Matricula:*</b></label></td>
+	<td><input type="text" name="matricula" maxlength="11" class="form-control"></td>
+	</li></tr>
 
 	
-	<tr>
-	<td><b>Senha:*</b></td><td><input type="password" name="senha" class="form-control" required></td>
-	</tr>
+	<tr><li>
+	<td><label for="nome"><b>Senha:*</b></label></td>
+	<td><input type="password" name="senha" class="form-control"></td>
+	</li></tr>
 			
-        <tr>
-	<td><b>Nome:*</b></td><td><input type="text" name="nome" class="form-control" required></td>
-	</tr>
+        <tr><li>
+	<td><label for="nome"><b>Nome:*</b></label></td>
+	<td><input type="text" name="nome" class="form-control"></td>
+	</li></tr>
 	  
-	<tr>
-	<td><b>CPF:*</b></td><td><input type="text" name="cpf" maxlength="11" class="form-control" required></td>
-	</tr>
+	<tr><li>
+	<td><label for="nome"><b>CPF:*</b></label></td>
+	<td><input type="text" name="cpf" maxlength="11" class="form-control"></td>
+	</li></tr>
 	
-	<tr>
-	<td><b>E-mail:*</b></td><td><input type="email" name="email" class="form-control" required></td>
-	</tr>
+	<tr><li>
+	<td><label for="nome"><b>E-mail:*</b></label></td>
+	<td><input type="text" name="email" class="form-control"></td>
+	</li></tr>
 	
-	<tr>
-	<td><b>Telefone:*</b></td><td><input type="text" name="telefone" placeholder="Ex: (DD) 9 9999-9999" maxlength="11" class="form-control" required></td>
-	</tr>
+	<tr><li>
+	<td><label for="nome"><b>Telefone:*</b></label></td>
+	<td><input type="text" name="telefone" placeholder="Ex: (DD) 9 9999-9999" maxlength="11" class="form-control"></td>
+	</li></tr>
 	
-	<tr>
-	<td><b>Perfil:*</b></b></td>
-	<td><select name="perfil" required="" selected="" class="form-control">
+	<tr><li>
+	<td><label for="nome"><b>Perfil:*</b></td>
+	<td><select name="perfil" selected="" class="form-control">
 	<option value="">Selecione uma opçao</option>
 	<option value="Administrador">Administrador</option>
 	<option value="Funcionário">Funcionário</option>
 	
 	</select></td>
-	</tr>
+	</li></tr>
 	
 	
 	<tr>
 	<td colspan=2 align="center"><input type="submit" class="btn btn-lg btn-primary btn-block" value="Cadastrar" ></td>
 	</tr>
-			
+		</ul>	
             </table></fieldset></center>
 		</form>
           </div>

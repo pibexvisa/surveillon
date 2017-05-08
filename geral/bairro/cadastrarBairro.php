@@ -49,17 +49,27 @@
             <h4 class="sub-header">Novo cadastro</h4>
             <center><div>
              <form action="insert_bairros.php" method="POST" >
-              <center><fieldset style=" width:400px"><table border="0"> 
+              <center><fieldset style=" width:400px"><table  class="table table-striped" border="0"> 
 
                <center>
                  <tr>
                    <td width=10%><b>Nome:</b></td>
                    <td><input type="text" name="nome" required="" autofocus="" class="form-control"></td>
                  </tr>
-                 <tr>
-                  <td><b>Area :</b></td>
-                  <td><input type="text" name="area"  required="" class="form-control" ></td>
-                </tr>
+		<tr>
+                <td><b>Área:</b></td>
+                <td>
+                  <select name="area" required="" selected="" class="form-control">
+		    <option value="">Selecione uma área</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+                  </select>
+                </td>
+              </tr>
+              
 
                 <tr>
                  <td></td>

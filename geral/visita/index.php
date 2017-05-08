@@ -56,17 +56,17 @@
        <!--Fim Lateral Esquerda-->
        <!--Area Central do Sistema-->
        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1 class="page-header">Visita</h1>
+        <h1 class="page-header">Visitas</h1>
 
 
         <table style="width:80%" align="center"  cellspacing="15">
 
           <tr>
-           <th width="center"><width="80"></th>
+           <td width="center"><img src="../bairro/img/lupa.png"width="80"></td>
            <td align="right"><img src="../img/cadastro.png" width="80">
            </tr> 
            <tr>
-            <td align="center"></td> <!-- include formulario de busca -->
+            <td align="center"><?php include 'formBuscaVisita.php';?></td> <!-- include formulario de busca -->
             <td align="right"><a href="cadastrar_visita.php">Cadastrar Visita</a></td>   
           </tr>
         </table>

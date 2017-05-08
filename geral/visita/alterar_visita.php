@@ -68,9 +68,9 @@
                    <div class="margimformadm">
                    
                     <center><fieldset style=" width:800px">
-                     <table>
+                     <table class="table table-striped">
                        <tr>
-                        <td>Matricula do Funcionário:</td>
+                        <td><b>Matricula do Funcionário:</b></td>
                         <td>
                            <input type="text" name="cod_usuario"  required="" class="form-control" value="<?php echo $linha['cod_usuario'] ?>">
                         
@@ -78,20 +78,20 @@
                     </tr>
                     
                     <tr>
-                      <td>Data:</td>
+                      <td><b>Data:</b></td>
                       <td>
                         <input type="date" name="data"  required="" maxlength="10" placeholder="ex: dd-mm-aaaa" class="form-control" value="<?php echo  $linha['data'] ?>">
                       </td>
                     </tr>
                   </tr>
                   <tr>
-                    <td>Hora:</td>
+                    <td><b>Hora:</b></td>
                     <td>
                       <input maxlength="8" name="hora"  placeholder="ex: 00:00:00"  required=""  class="form-control" value="<?php echo $linha['hora'] ?>">
                     </td>
                   </tr>
                   <tr>
-                    <td>Observação :</td>
+                    <td><b>Observação:</b></td>
                     <td>
                       <textarea name="observacao" required=""  rows="4" cols="50" maxlength="200" class="form-control"> <?php echo $linha['observacao'] ?> </textarea> 
                     </td>

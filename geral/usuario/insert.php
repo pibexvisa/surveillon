@@ -28,12 +28,12 @@ $stmt->execute();
 if($stmt->rowCount() >0){
 			 echo '<script>
 						alert("Usuário cadastrado com sucesso!");
-						location.href="../usuario/usuarios.php"
+						location.href="../usuario/index.php"
 					</script>';
 			}else{
 			 echo '<script>
 						alert("Erro ao cadastrar usuário!");
-						location.href="../usuario/usuarios.php"
+						location.href="../usuario/index.php"
 					</script>';
 			}
 
