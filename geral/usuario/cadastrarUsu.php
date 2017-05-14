@@ -57,7 +57,7 @@
           <h4 class="sub-header">Novo Usuario</h4>
           <div class="table-responsive">
 		<form id="cadastro" method="POST" action="insert.php">
-		<center><fieldset style=" width:800px">
+		<center><fieldset style=" width:400px">
 			
             <table class="table table-striped" border="0">
 	<ul>
