@@ -47,8 +47,8 @@ codigo INT PRIMARY KEY AUTO_INCREMENT,
 data DATE NOT NULL,
 hora TIME NOT NULL,
 observacao TEXT NOT NULL,
-cod_usuario VARCHAR(10) ,
-CONSTRAINT usuario_visita_fk FOREIGN KEY (cod_usuario) REFERENCES usuario (matricula)
+matricula_usuario VARCHAR(10) ,
+CONSTRAINT usuario_visita_fk FOREIGN KEY (matricula_usuario) REFERENCES usuario (matricula)
 )ENGINE=InnoDB AUTO_INCREMENT=200 DEFAULT CHARSET=utf8; 
 
 
