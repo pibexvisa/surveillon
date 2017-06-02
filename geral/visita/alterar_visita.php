@@ -53,7 +53,7 @@
              <?php
              try{
                include "../../conexao/conexao.php";
-               $stmt = $conexao->prepare("select visita.data,visita.hora,visita.observacao,visita.codigo,visita.cod_usuario from visita inner join usuario on visita.cod_usuario = usuario.matricula where visita.codigo = ?");
+               $stmt = $conexao->prepare("select visita.data,visita.hora,visita.observacao,visita.codigo,visita.matricula_usuario from visita inner join usuario on visita.matricula_usuario = usuario.matricula where visita.codigo = ?");
                $cod_visita= $_GET["codigo"]; 
                $stmt->bindValue(1,$cod_visita);
                $stmt->execute();
@@ -72,7 +72,7 @@
                        <tr>
                         <td><b>Matricula do Funcionário:</b></td>
                         <td>
-                           <input type="text" name="cod_usuario"  required="" class="form-control" value="<?php echo $linha['cod_usuario'] ?>">
+                           <input type="text" name="matricula_usuario"  required="" class="form-control" value="<?php echo $linha['matricula_usuario'] ?>">
                         
                       </td>
                     </tr>
