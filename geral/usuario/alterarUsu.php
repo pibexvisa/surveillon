@@ -64,7 +64,7 @@
 			<?php
   			     try{
   			include "../../conexao/conexao.php";
-  			$stmt = $conexao->prepare("select * from usuario where matricula = ?");
+  			$stmt = $conexao->prepare("select * from usuario where codigo = ?");
   			$cod_caso= $_GET["codigo"]; 
  			$stmt->bindValue(1,$cod_caso);
  			$stmt->execute();
@@ -75,14 +75,25 @@
   				<!-- NOSEARCH -->
   				<div id="toolbar"></div><br> 
 
-  		<form id="cadastro" action="updateUsu.php?matricula=<?php echo $linha['matricula']?>" method="POST" class="header"> 
+  		<form id="cadastro" action="updateUsu.php?codigo=<?php echo $linha['codigo']?>" method="POST" class="header"> 
   				<div class="margimformadm">
 
   		<center><ul>
 		<fieldset style=" width:400px"><table  border="0" class="table table-striped">
+	
+			<tr><li>
+			<td width=30%><label for="nome"><b>Matricula:</b></label></td>
+			<td><input type="text" name="matricula" maxlength="11" class="form-control" value="<?php echo $linha["matricula"] ?>"></td>
+			</li></tr>
+
+	
+				<tr><li>
+				<td><label for="nome"><b>Nova senha:</b></label></td>
+				<td><input type="password" name="senhaa" class="form-control"></td>
+				</li></tr>
 				
   			<tr><li>
-  			<td width=10%><label for="nome"><b>Nome:</b></label></td>
+  			<td><label for="nome"><b>Nome:</b></label></td>
   			<td><input type="text" class="form-control" name="nome"  value="<?php echo $linha["nome"] ?>"></td>
   			</li></tr>
   				<tr><li>
@@ -92,12 +103,12 @@
   			
 			
 			<tr><li>
-  			<td width=10%><label for="nome"><b>Email:</b></label></td>
+  			<td><label for="nome"><b>Email:</b></label></td>
   			<td><input type="text" class="form-control" name="email"  value="<?php echo $linha["email"] ?>"></td>
   			</li></tr>
 
 			<tr><li>
-  			<td width=10%><label for="nome"><b>Telefone:</b></label></td>
+  			<td><label for="nome"><b>Telefone:</b></label></td>
   			<td><input type="text" class="form-control" name="telefone" maxlength="11" value="<?php echo $linha["telefone"] ?>"></td>
   				</li></tr>
 	
@@ -115,11 +126,12 @@
              </td>
            </li></tr>
 	
-			<tr>
-  			<td></td>
-  			<td  align="center"><input type="submit" class="btn btn-lg btn-primary btn-block" value="Enviar"></td>
-  			</tr>
-				</ul>
+			<table class="table table-striped">
+                	<tr>
+                  	<td><a id="cancelar" href="../usuario/index.php" class="btn btn-lg btn-primary btn-block">Cancelar</a></td>
+                	  <td><input type="submit" value="Alterar" class="btn btn-lg btn-primary btn-block"></td>
+                	</tr>
+			</table></ul>
   			</table></fieldset></center>
 			</form> 
   		</div>

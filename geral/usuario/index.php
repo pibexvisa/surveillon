@@ -70,7 +70,7 @@
               $stmt->execute();
             }else{
 
-             $stmt = $conexao->query ("select matricula,nome,perfil from usuario LIMIT 10 ");
+             $stmt = $conexao->query ("select codigo,matricula,nome,perfil from usuario LIMIT 10 ");
            }
 
            
@@ -101,8 +101,8 @@
 		<td width=10%  align="center"><p > '.$linha['perfil'].'</p></td>
               
 
-              <td  width=10% align="center"><a href="deletarUsu.php?matricula='.$linha['matricula'].'">Excluir<a></td>
-              <td width=10% align="center"><a href="alterarUsu.php?codigo='.$linha['matricula'].'">Alterar<a></td>
+              <td  width=10% align="center"><a href="#" onclick="show_confirm('.$linha['codigo'].')">Excluir<a></td>
+              <td width=10% align="center"><a href="alterarUsu.php?codigo='.$linha['codigo'].'">Alterar<a></td>
 
             </tr>
           </fieldset> 
@@ -111,12 +111,12 @@
       
       ?> 
 
-      <script type="text/javascript">
+  <script type="text/javascript">
 
-       function show_confirm(matricula){
+       function show_confirm(codigo){
          var excluir = confirm("Deseja excluir?");
          if(excluir == true){
-           window.location.href="deletarUsu.php?matricula=" + matricula +'';
+           window.location.href="deletarUsu.php?codigo=" + codigo +'';
          }else{ 
 	//alert("Tem certeza qu deseja cancelar?");
 }

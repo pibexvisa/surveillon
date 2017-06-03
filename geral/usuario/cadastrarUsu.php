@@ -104,10 +104,12 @@
 	</li></tr>
 	
 	
-	<tr>
-	<td colspan=2 align="center"><input type="submit" class="btn btn-lg btn-primary btn-block" value="Cadastrar" ></td>
-	</tr>
-		</ul>	
+	<table class="table table-striped">
+                	<tr>
+                  	<td><a id="cancelar" href="../usuario/index.php" class="btn btn-lg btn-primary btn-block">Cancelar</a></td>
+                	  <td><input type="submit" value="Cadastrar" class="btn btn-lg btn-primary btn-block"></td>
+                	</tr>
+			</table></ul>	
             </table></fieldset></center>
 		</form>
           </div>

@@ -8,8 +8,8 @@
 include '../../conexao/conexao.php'; 
 
 try{
-	$stmt = $conexao->prepare("delete from usuario where matricula = ?");
-	$cod= $_GET["matricula"]; 
+	$stmt = $conexao->prepare("delete from usuario where codigo = ?");
+	$cod= $_GET["codigo"]; 
 	$stmt -> bindParam(1,$cod);    
 	$stmt->execute(); 
 

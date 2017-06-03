@@ -67,10 +67,10 @@
                  <form  method="POST" class="header" action="update_visita.php?codigo=<?php echo $linha['codigo']?>"> 
                    <div class="margimformadm">
                    
-                    <center><fieldset style=" width:800px">
+                    <center><fieldset style=" width:600px">
                      <table class="table table-striped">
                        <tr>
-                        <td><b>Matricula do Funcionário:</b></td>
+                        <td><b>Matricula do Funcionário:*</b></td>
                         <td>
                            <input type="text" name="matricula_usuario"  required="" class="form-control" value="<?php echo $linha['matricula_usuario'] ?>">
                         
@@ -78,28 +78,30 @@
                     </tr>
                     
                     <tr>
-                      <td><b>Data:</b></td>
+                      <td><b>Data:*</b></td>
                       <td>
                         <input type="date" name="data"  required="" maxlength="10" placeholder="ex: dd-mm-aaaa" class="form-control" value="<?php echo  $linha['data'] ?>">
                       </td>
                     </tr>
                   </tr>
                   <tr>
-                    <td><b>Hora:</b></td>
+                    <td><b>Hora:*</b></td>
                     <td>
                       <input maxlength="8" name="hora"  placeholder="ex: 00:00:00"  required=""  class="form-control" value="<?php echo $linha['hora'] ?>">
                     </td>
                   </tr>
                   <tr>
-                    <td><b>Observação:</b></td>
+                    <td><b>Observação:*</b></td>
                     <td>
                       <textarea name="observacao" required=""  rows="4" cols="50" maxlength="200" class="form-control"> <?php echo $linha['observacao'] ?> </textarea> 
                     </td>
                   </tr>
-                  <tr>
-                    <td></td>
-                    <td><input type="submit" value="Cadastrar" class="btn btn-lg btn-primary btn-block"></td>
-                  </tr>
+                  <table class="table table-striped">
+                <tr>
+                  <td><a id="cancelar" href="../visita/index.php" class="btn btn-lg btn-primary btn-block">Cancelar</a></td>
+                  <td><input type="submit" value="Cadastrar" class="btn btn-lg btn-primary btn-block"></td>
+                </tr>
+		</table>
                 </table>
               </fieldset></center>
             </form> 

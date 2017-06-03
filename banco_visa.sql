@@ -31,15 +31,16 @@ primary key(codigo)
 
 
 create table usuario(
-matricula VARCHAR(10) NOT NULL,
+codigo int AUTO_INCREMENT,
+matricula VARCHAR(10) unique NOT NULL,
 senha VARCHAR(100) NOT NULL,
 cpf VARCHAR(11) NOT NULL, 
 nome VARCHAR(40) NOT NULL,
  email VARCHAR(40) NOT NULL, 
 telefone VARCHAR(11) NOT NULL, 
 perfil VARCHAR(15) NOT NULL, 
-primary key(matricula)
-)ENGINE=InnoDB  DEFAULT CHARSET=utf8; 
+primary key(codigo)
+)ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 
 create table  visita(
