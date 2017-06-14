@@ -68,7 +68,7 @@
           <form action="update_caso.php?codigo=<?php echo $linha['codigo']?>" method="POST" class="header"> 
            <div class="margimformadm">
 
-            <center><fieldset style=" width:800px">
+            <center><fieldset style=" width:600px">
              <table  class="table table-striped" border="0">
               <tr>
                <td><b>Nome:</b></td>
@@ -91,10 +91,12 @@
              <td><b>Descrição:</b></td>
              <td><textarea class="form-control" name="descricao" required=""  rows="4" cols="50" maxlength="200"> <?php  echo $linha['descricao'] ?></textarea><td>
              </tr>
-             <tr>
-              <td></td>
-              <td><input type="submit" value="Enviar" class="btn btn-lg btn-primary btn-block"></td>
-            </tr>
+             		<table class="table table-striped">
+                	<tr>
+                  	<td><a id="cancelar" href="../casos/index.php" class="btn btn-lg btn-primary btn-block">Cancelar</a></td>
+                	  <td><input type="submit" value="Cadastrar" class="btn btn-lg btn-primary btn-block"></td>
+                	</tr>
+			</table>
           </table>
         </fieldset></center>
       </form> 

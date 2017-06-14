@@ -4,18 +4,24 @@
 
 include "../../conexao/conexao.php";
 
-try{
-	$stmt = $conexao->prepare("update visita
-		set data=? ,hora=?,observacao=?,matricula_usuario=? where codigo = ?");
-
 	$data= $_POST["data"]; 
 	$hora= $_POST["hora"]; 
 	$observacao= $_POST["observacao"]; 
 	$matricula_usuario= $_POST["matricula_usuario"]; 
-	$codigo= $_GET["codigo"]; 
+	$codigo= $_GET["codigo"];
+ 
+	function inverteData($data){
+    if(count(explode("/",$data)) > 1){
+        return implode("-",array_reverse(explode("/",$data)));
+    }elseif(count(explode("-",$data)) > 1){
+        return implode("/",array_reverse(explode("-",$data)));
+    }
+}
 
+try{
+	$stmt = $conexao->prepare("update visita set data=? ,hora=?,observacao=?,matricula_usuario=? where codigo = ?");
 
-	$stmt -> bindParam(1,$data);
+	$stmt -> bindParam(1,inverteData($data));
 	$stmt -> bindParam(2,$hora);
 	$stmt -> bindParam(3,$observacao);
 	$stmt -> bindParam(4,$matricula_usuario);

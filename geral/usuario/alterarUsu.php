@@ -43,6 +43,18 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
+	<script type="text/javascript">
+	function habilitar(){
+        if(document.getElementById('hab').checked){
+            document.getElementById('senhaa').removeAttribute("disabled");
+        }
+        else {
+            document.getElementById('onoff').value=''; //Evita que o usuário defina um texto e desabilite o campo após realiza-lo
+            document.getElementById('senhaa').setAttribute("disabled", "disabled");
+        }
+    }
+
+	</script>
   </head>
 
   <body>
@@ -83,14 +95,15 @@
 	
 			<tr><li>
 			<td width=30%><label for="nome"><b>Matricula:</b></label></td>
-			<td><input type="text" name="matricula" maxlength="11" class="form-control" value="<?php echo $linha["matricula"] ?>"></td>
+			<td><input type="text" name="matricula" maxlength="" class="form-control" value="<?php echo $linha["matricula"] ?>"></td>
 			</li></tr>
 
 	
-				<tr><li>
-				<td><label for="nome"><b>Nova senha:</b></label></td>
-				<td><input type="password" name="senhaa" class="form-control"></td>
-				</li></tr>
+		<tr><li>
+		<td><label for="nome"><b>Alterar senha:</b></label></td>
+		<td><input type="password" name="senhaa" id="senhaa" class="form-control" disabled></td>
+		<tr><td></td><td>Selecione se deseja alterar  <input type="checkbox" value="alterar" id="hab" name="hab" onclick="habilitar()" name="alterarSenha"></td></tr>
+		</li></tr>
 				
   			<tr><li>
   			<td><label for="nome"><b>Nome:</b></label></td>

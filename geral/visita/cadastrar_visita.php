@@ -24,13 +24,19 @@
   <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
   <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
   <script src="../js/ie-emulation-modes-warning.js.download"></script>
+ 
 
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.min.js"></script>
+	<script src="../../js/validarVisita.js"></script>
+	
+	
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
-
       
     </head>
     <body>
@@ -72,19 +78,18 @@
                         ?>
                       </select>
                     </td>
-                  </tr>
-                  
+                  </tr>  
                   <tr>
                     <td><b>Data:*</b></td>
                     <td>
-                      <input type="date" name="data"   required="" maxlength="10" placeholder="ex: dd-mm-aaaa" class="form-control">
+                      <input type="text" name="data" id="data"  required="" maxlength="10" placeholder="dd/mm/aaaa" class="form-control">
                     </td>
                   </tr>
                 </tr>
                 <tr>
                   <td><b>Hora:*</b></td>
                   <td>
-                    <input type="time" maxlength="8" name="hora"  placeholder="ex: 00:00:00"  required=""  class="form-control">
+                    <input type="text" maxlength="6" name="hora" id="hora" placeholder="hh:mm:"  required=""  class="form-control">
                   </td>
                 </tr>
                 <tr>
@@ -119,6 +124,16 @@
     <script src="../js/holder.min.js.download"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../js/ie10-viewport-bug-workaround.js.download"></script>
-    
+
+	<script type="text/javascript">
+
+$('#data').on('keyup', function(event) {
+  var valorMaximo = 31;
+
+  if (event.target.value > valorMaximo)
+    return event.target.value = valorMaximo;
+});
+	
+    </script>
 
   </body><object id="98ab2918-b948-b0ba-3878-8ba9ea92aab8" width="0" height="0" type="application/gas-events-cef"></object></html>

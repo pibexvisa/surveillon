@@ -55,7 +55,7 @@
           <div class="margimformadm">
             <h1 class="hidden"><span id="logo">CADASTRAMENTO DE CASOS</span></h1>
 
-            <center><fieldset style=" width:800px"><table  class="table table-striped" border="0">
+            <center><fieldset style=" width:600px"><table  class="table table-striped" border="0">
               <tr>
                 <td><b>Nome:</b></td>
                 <td>
@@ -82,10 +82,12 @@
 
               </td>
             </tr>
-            <tr>
-              <td></td>
-              <td><input type="submit" value="Cadastrar" class="btn btn-lg btn-primary btn-block"></td>
-            </tr>
+            <table class="table table-striped">
+                	<tr>
+                  	<td><a id="cancelar" href="../casos/index.php" class="btn btn-lg btn-primary btn-block">Cancelar</a></td>
+                	  <td><input type="submit" value="Cadastrar" class="btn btn-lg btn-primary btn-block"></td>
+                	</tr>
+			</table>
           </table></fieldset></center>
         </form> 
       </div>

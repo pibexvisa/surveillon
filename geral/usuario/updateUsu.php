@@ -4,7 +4,7 @@
 
 include '../../conexao/conexao.php';
 	
-	$codigo= $_GET["codigo"]; 
+	$codigo= $_GET["codigo"];
 	$matricula= $_POST["matricula"];
 	$senha = $_POST["senhaa"];
 	$nome= $_POST["nome"]; 
@@ -13,8 +13,10 @@ include '../../conexao/conexao.php';
 	$telefone = $_POST["telefone"];
 	$perfil = $_POST["perfil"];
 	
-	if($senha > 0){
+	try{
 	
+	if($_POST["senhaa"] != null){
+
 	$stmt = $conexao->prepare("update usuario set  matricula=?, senha=?, cpf=?, nome=?,email=?,telefone=?,perfil=? where codigo =?");
 	
 	$stmt -> bindParam(1,$matricula);
@@ -42,6 +44,9 @@ include '../../conexao/conexao.php';
 	
 	$stmt->execute(); 
 	}
+  	}catch(PDOException $e){
+  	echo 'ERROR: ' . $e->getMessage();
+  	} 
 
 	if($stmt->rowCount() >0){
 		echo '<script>
@@ -53,7 +58,6 @@ include '../../conexao/conexao.php';
 			alert("Erro na alteração!");
 			location.href="../usuario/index.php"
 	</script>';
-	}	
-
+	}
 ?>
 

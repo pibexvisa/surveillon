@@ -26,11 +26,29 @@
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 <script src="../js/ie-emulation-modes-warning.js.download"></script>
 
+    <script src="../../js/Jquery.maske/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/Jquery.maske/jquery.maskedinput.min.js" type="text/javascript"></script>
+
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
+	<script type="text/javascript">
+        $(function(){
+            $.mask.definitions['~'] = "[+-]";
+            $("#data").mask("99/99/9999");
+            $("#hora").mask("99:99:99");
+        });	
+	jQuery(function($){
+      $.mask.definitions['H']='[012]';
+      $.mask.definitions['N']='[012345]';
+      $.mask.definitions['n']='[0123456789]';
+      $("#hora").mask("Hn:Nn:Nn");
+    });
+    	</script>	
+	
     </head>
 
     <body>
@@ -80,14 +98,14 @@
                     <tr>
                       <td><b>Data:*</b></td>
                       <td>
-                        <input type="date" name="data"  required="" maxlength="10" placeholder="ex: dd-mm-aaaa" class="form-control" value="<?php echo  $linha['data'] ?>">
+                        <input type="text" name="data" id="data"  required="" maxlength="10" placeholder="ex: dd-mm-aaaa" class="form-control" value="<?php echo date("d/m/Y", strtotime($linha['data'])); ?>">
                       </td>
                     </tr>
                   </tr>
                   <tr>
                     <td><b>Hora:*</b></td>
                     <td>
-                      <input maxlength="8" name="hora"  placeholder="ex: 00:00:00"  required=""  class="form-control" value="<?php echo $linha['hora'] ?>">
+                      <input maxlength="10" name="hora" id="hora" placeholder="ex: 00:00:00"  required=""  class="form-control" value="<?php echo $linha['hora'] ?>">
                     </td>
                   </tr>
                   <tr>

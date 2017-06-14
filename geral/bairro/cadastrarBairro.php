@@ -71,11 +71,12 @@
               </tr>
               
 
-                <tr>
-                 <td></td>
-                 <td><input type="submit" class="btn btn-lg btn-primary btn-block" value="Cadastrar"></td>
-                 <td></td>
-               </tr>
+                <table class="table table-striped">
+                	<tr>
+                  	<td><a id="cancelar" href="../bairro/index.php" class="btn btn-lg btn-primary btn-block">Cancelar</a></td>
+                	  <td><input type="submit" value="Cadastrar" class="btn btn-lg btn-primary btn-block"></td>
+                	</tr>
+			</table>
              </table></fieldset></center>
            </form></div></center> 
          </div>

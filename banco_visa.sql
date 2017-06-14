@@ -32,7 +32,7 @@ primary key(codigo)
 
 create table usuario(
 codigo int AUTO_INCREMENT,
-matricula VARCHAR(10) unique NOT NULL,
+matricula VARCHAR(10) unique NOT  NULL,
 senha VARCHAR(100) NOT NULL,
 cpf VARCHAR(11) NOT NULL, 
 nome VARCHAR(40) NOT NULL,
@@ -48,7 +48,7 @@ codigo INT PRIMARY KEY AUTO_INCREMENT,
 data DATE NOT NULL,
 hora TIME NOT NULL,
 observacao TEXT NOT NULL,
-matricula_usuario VARCHAR(10) ,
+matricula_usuario VARCHAR(10),
 CONSTRAINT usuario_visita_fk FOREIGN KEY (matricula_usuario) REFERENCES usuario (matricula)
 )ENGINE=InnoDB AUTO_INCREMENT=200 DEFAULT CHARSET=utf8; 
 

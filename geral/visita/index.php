@@ -91,8 +91,8 @@
             </tr>
           </table>
 
-          <?php
-          $stmt = $conexao->query ("select visita.data,visita.hora,visita.observacao,visita.codigo,usuario.nome,visita.matricula_usuario from visita inner join usuario on visita.matricula_usuario = usuario.matricula");
+        <?php
+      $stmt = $conexao->query ("select visita.data,visita.hora,visita.observacao,visita.codigo,usuario.nome,visita.matricula_usuario from visita inner join usuario on visita.matricula_usuario = usuario.matricula");
           while ($linha = $stmt -> fetch (PDO::FETCH_ASSOC)){
             ?>
 
@@ -101,7 +101,7 @@
                 <td width=10% align="center"><p> <?php echo $linha['codigo'] ?> </p></th>
                 <td width=10% align="center"><p><?php echo $linha['matricula_usuario'] ?> </p></th>
                 <td width=10% align="center"><p><?php echo $linha['nome']  ?> </p></td>
-                <td width=10% align="center"><p><?php echo date("d/m/y", strtotime($linha['data'] ));?> </p></td>
+                <td width=10% align="center"><p><?php echo date("d/m/Y", strtotime($linha['data'] ));?> </p></td>
                 <td width=10% align="center"><p><?php echo $linha['hora'] ?> </p></td>
 
                 <td width=10% align="center"><a href="#" onclick="show_confirm(<?php echo $linha['codigo']?>) ">Excluir <a></td>
