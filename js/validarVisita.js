@@ -22,6 +22,9 @@ var data = function (valorData) {
 
 $(document).ready(function () {
   $("#hora").mask(mascara, pattern);
-  $("#data").mask(data);
+  $("#dia").mask(data);
+  $("#mes").mask(data);
+  $("#ano").mask("9999");
+	
 });
 

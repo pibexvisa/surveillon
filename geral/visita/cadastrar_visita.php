@@ -60,7 +60,7 @@
                 <div class="margimformadm">
                   <h1 class="hidden"><span id="logo">CADASTRAMENTO DE VISITAS</span></h1>
                   <?php include "../../conexao/conexao.php";?>
-                  <center><fieldset style=" width:600px"><table class="table table-striped" border="0">
+                  <center><fieldset style=" width:500px"><table class="table table-striped" border="0">
             
                      <tr>
                       <td><b>Nome:*</b></td>
@@ -78,14 +78,25 @@
                         ?>
                       </select>
                     </td>
-                  </tr>  
+                  </tr> 
+		</table>
+		<table border=0 class="table table-striped"> 
                   <tr>
-                    <td><b>Data:*</b></td>
-                    <td>
-                      <input type="text" name="data" id="data"  required="" maxlength="10" placeholder="dd/mm/aaaa" class="form-control">
+                    <td width=80px ><b>Data:*</b></td>
+                    <td width=10px>Dia:
+                      <input type="text" name="dia" id="dia"  required="" maxlength="2"  class="form-control">
+                    </td>
+			<td width=10px>Mês:
+                      <input type="text" name="mes" id="mes"  required="" maxlength="2"  class="form-control">
+                    </td>
+			<td width=80px>Ano:
+                      <input type="text" name="ano" id="ano"  required="" maxlength="4" class="form-control">
                     </td>
                   </tr>
+		
                 </tr>
+		</table>	
+		<table border=0 class="table table-striped"> 
                 <tr>
                   <td><b>Hora:*</b></td>
                   <td>
@@ -127,8 +138,22 @@
 
 	<script type="text/javascript">
 
-$('#data').on('keyup', function(event) {
+$('#dia').on('keyup', function(event) {
   var valorMaximo = 31;
+
+  if (event.target.value > valorMaximo)
+    return event.target.value = valorMaximo;
+});
+
+$('#mes').on('keyup', function(event) {
+  var valorMaximo = 12;
+
+  if (event.target.value > valorMaximo)
+    return event.target.value = valorMaximo;
+});
+
+$('#ano').on('keyup', function(event) {
+  var valorMaximo = 2999;
 
   if (event.target.value > valorMaximo)
     return event.target.value = valorMaximo;
