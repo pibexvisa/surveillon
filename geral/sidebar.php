@@ -1,8 +1,8 @@
 <?php 
   function echoActiveClassIfRequestMatches($requestUri)
 	{	
-	    $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
-
+	    $current_file_name =basename(dirname($_SERVER['REQUEST_URI']));
+			
 	    if ($current_file_name == $requestUri)
 	        echo 'class = "active surveillon"';
 	}
@@ -14,9 +14,9 @@
 					<ul class="nav nav-sidebar">
 			<li style="background-color:#cccccc;text-align:center;">Admin</li>
 			<li <?php echoActiveClassIfRequestMatches("casos"); ?>><a href="../casos/index.php">Casos</a></li>
-			<li <?php echoActiveClassIfRequestMatches("bairros"); ?>><a href="../bairro/index.php">Bairros</a></li>
+			<li <?php echoActiveClassIfRequestMatches("bairro"); ?>><a href="../bairro/index.php">Bairros</a></li>
 			<li <?php echoActiveClassIfRequestMatches("visita"); ?>><a href="../visita/index.php">Visitas</a></li>
-                <li <?php echoActiveClassIfRequestMatches("usuarios"); ?>><a href="../usuario/index.php">Usuários</a></li>
+                <li <?php echoActiveClassIfRequestMatches("usuario"); ?>><a href="../usuario/index.php">Usuários</a></li>
 		
 					</ul>
 </div>
