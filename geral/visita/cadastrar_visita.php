@@ -24,8 +24,6 @@
   <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
   <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
   <script src="../js/ie-emulation-modes-warning.js.download"></script>
- 
-
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.min.js"></script>
@@ -63,7 +61,7 @@
                   <center><fieldset style=" width:500px"><table class="table table-striped" border="0">
             
                      <tr>
-                      <td><b>Nome:*</b></td>
+                      <td><b>Agente:*</b></td>
                       <td>
                         <select name="matricula" required="" selected="" class="form-control">
                          <?php
@@ -82,7 +80,7 @@
 		</table>
 		<table border=0 class="table table-striped"> 
                   <tr>
-                    <td width=80px ><b>Data:*</b></td>
+                    <td width=80px><b>Data:*</b></td>
                     <td width=10px>Dia:
                       <input type="text" name="dia" id="dia"  required="" maxlength="2"  class="form-control">
                     </td>
@@ -100,7 +98,7 @@
                 <tr>
                   <td><b>Hora:*</b></td>
                   <td>
-                    <input type="text" maxlength="6" name="hora" id="hora" placeholder="hh:mm:"  required=""  class="form-control">
+                    <input type="text" maxlength="8" name="hora" id="hora" placeholder="hh:mm:"  required=""  class="form-control">
                   </td>
                 </tr>
                 <tr>

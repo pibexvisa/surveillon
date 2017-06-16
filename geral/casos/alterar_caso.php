@@ -94,7 +94,7 @@
              		<table class="table table-striped">
                 	<tr>
                   	<td><a id="cancelar" href="../casos/index.php" class="btn btn-lg btn-primary btn-block">Cancelar</a></td>
-                	  <td><input type="submit" value="Cadastrar" class="btn btn-lg btn-primary btn-block"></td>
+                	  <td><input type="submit" value="Alterar" class="btn btn-lg btn-primary btn-block"></td>
                 	</tr>
 			</table>
           </table>

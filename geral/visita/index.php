@@ -81,8 +81,8 @@
           <table width=100% class="table table-striped">
             <tr>
               <td width=10% align="center"><b>Id</b></td>
-              <td width=10% align="center"><b>Matricula do Funcionário</b></td>
-              <td width=10% align="center"><b>Nome</b></td>
+              <td width=10% align="center"><b>Matricula do Agente</b></td>
+              <td width=10% align="center"><b>Agente</b></td>
               <td width= 10% align="center"><b>Data</b></td>
               <td width= 10% align="center"><b>Hora</b></td>
 

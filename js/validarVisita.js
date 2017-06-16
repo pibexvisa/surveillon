@@ -1,6 +1,6 @@
 var mascara = function (valor) {
     valor = valor.split(":");
-    return (parseInt(valor[0]) > 19)? "HZ:M0" : "H0:M0";
+    return (parseInt(valor[0]) > 19)? "HZ:M0:M0" : "H0:M0:M0";
 }
 
 pattern = {
@@ -12,7 +12,7 @@ pattern = {
         'Z': { pattern: /[0-3]/, optional: false },
         'M': { pattern: /[0-5]/, optional: false }
     },
-    placeholder: 'hh:mm'
+    placeholder: 'hh:mm:ss'
 };
 
 var data = function (valorData) {

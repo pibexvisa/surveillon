@@ -29,25 +29,16 @@
     <script src="../../js/Jquery.maske/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../js/Jquery.maske/jquery.maskedinput.min.js" type="text/javascript"></script>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.min.js"></script>
+	<script src="../../js/validarVisita.js"></script>
+
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <![endif]-->
-	<script type="text/javascript">
-        $(function(){
-            $.mask.definitions['~'] = "[+-]";
-            $("#data").mask("99/99/9999");
-            $("#hora").mask("99:99:99");
-        });	
-	jQuery(function($){
-      $.mask.definitions['H']='[012]';
-      $.mask.definitions['N']='[012345]';
-      $.mask.definitions['n']='[0123456789]';
-      $("#hora").mask("Hn:Nn:Nn");
-    });
-    	</script>	
+      <![endif]-->	
 	
     </head>
 
@@ -85,7 +76,7 @@
                  <form  method="POST" class="header" action="update_visita.php?codigo=<?php echo $linha['codigo']?>"> 
                    <div class="margimformadm">
                    
-                    <center><fieldset style=" width:600px">
+                    <center><fieldset style=" width:500px">
                      <table class="table table-striped">
                        <tr>
                         <td><b>Matricula do Funcionário:*</b></td>
@@ -94,18 +85,27 @@
                         
                       </td>
                     </tr>
-                    
+			</table>
+                    <table border=0 class="table table-striped">
                     <tr>
-                      <td><b>Data:*</b></td>
-                      <td>
-                        <input type="text" name="data" id="data"  required="" maxlength="10" placeholder="ex: dd-mm-aaaa" class="form-control" value="<?php echo date("d/m/Y", strtotime($linha['data'])); ?>">
+                      <td width=80px><b>Data:*</b></td>
+                      <td width=10px>Dia:
+                        <input type="text" name="dia" id="dia"  required="" maxlength="2"class="form-control" value="<?php echo date("d", strtotime($linha['data'])); ?>">
                       </td>
+			<td width=80px>Mês:
+                      <input type="text" name="mes" id="mes"  required="" maxlength="2"  class="form-control" value="<?php echo date("m", strtotime($linha['data'])); ?>">
+                    </td>
+		<td width=80px>Ano:
+                      <input type="text" name="ano" id="ano"  required="" maxlength="4" class="form-control" value="<?php echo date("Y", strtotime($linha['data'])); ?>">
+                    </td>
                     </tr>
                   </tr>
+			</table>
+		<table border=0 class="table table-striped">
                   <tr>
                     <td><b>Hora:*</b></td>
                     <td>
-                      <input maxlength="10" name="hora" id="hora" placeholder="ex: 00:00:00"  required=""  class="form-control" value="<?php echo $linha['hora'] ?>">
+                      <input maxlength="10" name="hora" id="hora" maxlength="8"  required=""  class="form-control" value="<?php echo $linha['hora'] ?>">
                     </td>
                   </tr>
                   <tr>
@@ -117,7 +117,7 @@
                   <table class="table table-striped">
                 <tr>
                   <td><a id="cancelar" href="../visita/index.php" class="btn btn-lg btn-primary btn-block">Cancelar</a></td>
-                  <td><input type="submit" value="Cadastrar" class="btn btn-lg btn-primary btn-block"></td>
+                  <td><input type="submit" value="Alterar" class="btn btn-lg btn-primary btn-block"></td>
                 </tr>
 		</table>
                 </table>
@@ -148,6 +148,31 @@
     <script src="js/holder.min.js.download"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js.download"></script>
+
+<script type="text/javascript">
+
+$('#dia').on('keyup', function(event) {
+  var valorMaximo = 31;
+
+  if (event.target.value > valorMaximo)
+    return event.target.value = valorMaximo;
+});
+
+$('#mes').on('keyup', function(event) {
+  var valorMaximo = 12;
+
+  if (event.target.value > valorMaximo)
+    return event.target.value = valorMaximo;
+});
+
+$('#ano').on('keyup', function(event) {
+  var valorMaximo = 2999;
+
+  if (event.target.value > valorMaximo)
+    return event.target.value = valorMaximo;
+});
+	
+    </script>
     
 
   </body><object id="98ab2918-b948-b0ba-3878-8ba9ea92aab8" width="0" height="0" type="application/gas-events-cef"></object></html>

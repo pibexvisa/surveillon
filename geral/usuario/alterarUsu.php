@@ -49,7 +49,7 @@
             document.getElementById('senhaa').removeAttribute("disabled");
         }
         else {
-            document.getElementById('onoff').value=''; //Evita que o usuário defina um texto e desabilite o campo após realiza-lo
+            document.getElementById('hab').value=''; //Evita que o usuário defina um texto e desabilite o campo após realiza-lo
             document.getElementById('senhaa').setAttribute("disabled", "disabled");
         }
     }
