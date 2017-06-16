@@ -58,8 +58,8 @@
 
       <form class="form-signin">
         <h2 class="form-signin-heading">Acesso</h2>
-        <label for="inputEmail" class="sr-only">Email</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
+        <label for="inputEmail" class="sr-only">Matricula</label>
+        <input type="text" id="matricula" class="form-control" placeholder="Matricula" required="" autofocus="">
         <label for="inputPassword" class="sr-only">Senha</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required="">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
@@ -69,7 +69,7 @@
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<?php include("footer.php");?>
+		<?php include("geral/footer.php");?>
 		<script src="js/ie10-viewport-bug-workaround.js.download"></script>
 
 

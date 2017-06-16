@@ -55,7 +55,9 @@ CONSTRAINT usuario_visita_fk FOREIGN KEY (matricula_usuario) REFERENCES usuario 
 
 
 
-Insert into usuario (cpf, nome,email,telefone,perfil) values ('465456465','alesson francisco','alesson@hotmail.com','81981308','adm');
-Insert into usuario (cpf, nome,email,telefone,perfil) values ('465456465',' administrado','alesson@hotmail.com','81981308','adm');
-Insert into usuario (cpf, nome,email,telefone,perfil) values ('465456465',' funcionario','alesson@hotmail.com','81981308','adm');
+Insert into usuario (cpf, matricula, nome,senha,email,telefone,perfil) 
+values 
+ ('465456465','1234','Administrador','adm123','adm@visa.com','8198130844','adm'),
+ ('465456465','2222','Funcionario1 da Silva','func123','funconario@visa.com','8192130448','adm');
+
 
