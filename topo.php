@@ -1,3 +1,4 @@
+<script src="js/util.js"></script>
 <nav class="navbar navbar-inverse navbar-fixed-top surveillon">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -8,7 +9,15 @@
             <span class="icon-bar"></span>
           </button>
 					<?php
-			
+					function echoDisableLink($requestUri)
+					{	
+						 $current_file_name =basename($_SERVER['REQUEST_URI'],".php");
+
+						 if ($current_file_name == $requestUri){
+							  echo "class=disabled";
+						 }
+					}
+
 					switch(basename(dirname($_SERVER['REQUEST_URI']))){
 						case "mod_denuncias":
 							$current_module = "Modulo de Denúncias";
@@ -25,8 +34,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a class="surveillon"; href="http://getbootstrap.com/examples/dashboard/#">Fulano</a></li>
-						<li><a href="inicio.php">Início</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">Sobre o Surveillon</a></li>
+						<li><a href="inicio.php" <?php echoDisableLink("inicio");?>>Início</a></li>
+            <li><a href="sobre.php" <?php echoDisableLink("sobre");?>>Sobre o Surveillon</a></li>
             <li><a href="http://getbootstrap.com/examples/dashboard/#">Sair</a></li>
           </ul>
 
