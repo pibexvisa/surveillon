@@ -16,6 +16,6 @@
 				<li <?php echoActiveClassIfRequestMatches("casos"); ?>><a href="../geral/casos/index.php">Casos</a></li>
 				<li <?php echoActiveClassIfRequestMatches("bairros"); ?>><a href="../geral/bairro/index.php">Bairros</a></li>
 				<li <?php echoActiveClassIfRequestMatches("visita"); ?>><a href="../geral/visita/index.php">Visitas</a></li>
-            <li <?php echoActiveClassIfRequestMatches("usuarios"); ?>><a href="../geral/usuario/usuarios.php">Usuários</a></li>
+            <li <?php echoActiveClassIfRequestMatches("usuarios"); ?>><a href="../geral/usuario/index.php">Usuários</a></li>
 					</ul>
 </div>
