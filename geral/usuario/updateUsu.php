@@ -6,7 +6,7 @@ include '../../conexao/conexao.php';
 	
 	$codigo= $_GET["codigo"];
 	$matricula= $_POST["matricula"];
-	$senha = $_POST["senhaa"];
+	$senha = $_POST["senha"];
 	$nome= $_POST["nome"]; 
 	$cpf= $_POST["cpf"];
 	$email = $_POST["email"];
@@ -15,7 +15,7 @@ include '../../conexao/conexao.php';
 	
 	try{
 	
-	if($_POST["senhaa"] != null){
+	if($_POST["senha"] != null){
 
 	$stmt = $conexao->prepare("update usuario set  matricula=?, senha=?, cpf=?, nome=?,email=?,telefone=?,perfil=? where codigo =?");
 	

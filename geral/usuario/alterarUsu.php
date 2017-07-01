@@ -45,12 +45,12 @@
       <![endif]-->
 	<script type="text/javascript">
 	function habilitar(){
-        if(document.getElementById('hab').checked){
-            document.getElementById('senhaa').removeAttribute("disabled");
+        if(document.getElementById('habilitarCheckbox').checked){
+            document.getElementById('senha').removeAttribute("disabled");
         }
         else {
-            document.getElementById('hab').value=''; //Evita que o usuário defina um texto e desabilite o campo após realiza-lo
-            document.getElementById('senhaa').setAttribute("disabled", "disabled");
+            document.getElementById('habilitarCheckbox').value=''; //Evita que o usuário defina um texto e desabilite o campo após realiza-lo
+            document.getElementById('senha').setAttribute("disabled", "disabled");
         }
     }
 
@@ -101,8 +101,8 @@
 	
 		<tr><li>
 		<td><label for="nome"><b>Alterar senha:</b></label></td>
-		<td><input type="password" name="senhaa" id="senhaa" class="form-control" disabled></td>
-		<tr><td></td><td>Selecione se deseja alterar  <input type="checkbox" value="alterar" id="hab" name="hab" onclick="habilitar()" name="alterarSenha"></td></tr>
+		<td><input type="password" name="senha" id="senha" class="form-control" disabled></td>
+		<tr><td></td><td>Selecione se deseja alterar  <input type="checkbox" value="alterar" id="habilitarCheckbox" name="habilitarCheckbox" onclick="habilitar()" name="alterarSenha"></td></tr>
 		</li></tr>
 				
   			<tr><li>
