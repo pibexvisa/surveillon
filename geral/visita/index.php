@@ -70,14 +70,23 @@
             <td align="right"><a href="cadastrar_visita.php">Cadastrar Visita</a></td>   
           </tr>
         </table>
-
-        <?php
-
-        include '../../conexao/conexao.php'; /* include da conexão com o baco de dados */
-
-        ?>
-
         <fieldset>
+	
+	<?php
+            include '../../conexao/conexao.php'; /* include da conexão com o baco de dados */
+            $stmt = $conexao->prepare("select visita.codigo,visita.matricula_usuario,usuario.nome,visita.data,visita.hora from visita inner join usuario on visita.matricula_usuario=? and usuario.matricula=? "); 
+            if (isset($_GET["nome"])){
+              $nome= $_GET["nome"];
+		$nome2= $_GET["nome"];
+              $stmt->bindValue(1,$nome);
+	      $stmt->bindValue(2,$nome2);
+              $stmt->execute();
+            }else{
+             $stmt = $conexao->query ("select visita.codigo,visita.matricula_usuario,usuario.nome,visita.data,visita.hora from visita inner join usuario on visita.matricula_usuario = usuario.matricula and usuario.matricula= visita.matricula_usuario LIMIT 10");
+           }
+
+           
+           ?>
           <table width=100% class="table table-striped">
             <tr>
               <td width=10% align="center"><b>Id</b></td>
@@ -92,7 +101,7 @@
           </table>
 
         <?php
-      $stmt = $conexao->query ("select visita.data,visita.hora,visita.observacao,visita.codigo,usuario.nome,visita.matricula_usuario from visita inner join usuario on visita.matricula_usuario = usuario.matricula");
+
           while ($linha = $stmt -> fetch (PDO::FETCH_ASSOC)){
             ?>
 
