@@ -38,7 +38,7 @@
       <h1 class="page-header">Casos</h1>
 			<div style="display:none;" id="myAlert">
 			</div>
-      <h4 class="sub-header">Novo Caso</h4>
+      <h4 class="sub-header"><?php echo(isset($_GET["codigo"])?"Alterar Caso":"Novo Caso");?></h4>
       <!--Incluir codigo aqui-->
       <div class="table-responsive">
         <form method="POST"  name="fcadastrar"> 
@@ -92,8 +92,8 @@
             </tr>
             <table class="table table-striped">
                 	<tr>
-                  	<td><a id="cancelar" href="#" onclick="carregaPagina('geral/casos/index.php');" class="btn btn-lg btn-primary btn-block">Cancelar</a></td>
-                	  <td><input type="submit" value ="<?php echo(isset($_GET["codigo"])?"Alterar":" Cadastrar");?>" id="bt_cadastrar" class="btn btn-lg btn-primary btn-block"></td>
+                  	<td><input type="submit" value ="<?php echo(isset($_GET["codigo"])?"Alterar":" Cadastrar");?>" id="bt_cadastrar" class="btn btn-md btn-primary btn-block"></td>
+                	  <td><a id="cancelar" href="#" onclick="carregaPagina('geral/casos/index.php');" class="btn btn-md btn-default btn-block">Cancelar</a></td>
                 	</tr>
 			</table>
           </table></fieldset></center>

@@ -8,11 +8,11 @@
 include "../../conexao/conexao.php";  
 try{
 	$stmt = $conexao->prepare("delete from caso where codigo = ?");
-	$cod_caso= $_GET["codigo"]; 
+	$cod_caso= $_POST["codigo"]; 
 	$stmt -> bindParam(1,$cod_caso);    
 	$stmt->execute(); 
 
-	if($stmt->rowCount() >0){
+	/*if($stmt->rowCount() >0){
 		echo '<script>
 		alert("Caso excluido com sucesso!");
 		location.href="../casos/index.php"
@@ -22,7 +22,7 @@ try{
 	alert("Erro ao excluir Caso!");
 	location.href="../casos/index.php"
 </script>';
-}	
+}	*/
 }catch(PDOException $e){
 	echo 'ERROR: ' . $e->getMessage();
 }

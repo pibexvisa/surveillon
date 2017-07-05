@@ -6,30 +6,40 @@
 </head>
 <?php
 
-include '../../conexao/conexao.php';
+include "../../conexao/conexao.php";
 
 try{
-	$stmt = $conexao->prepare("insert into bairro (nome,area) values (?,?)");
+	$conexao->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+	if($_POST["codigo"] != ""){
+		$stmt = $conexao->prepare("update bairro set nome=?, area =? where codigo=?");
 
-	$nome= $_POST["nome"]; 
-	$area= $_POST["area"]; 
+		$nome= $_POST["nome"]; 
+		$area= $_POST["area"]; 
 
-	$stmt -> bindParam(1,$nome);
-	$stmt -> bindParam(2,$area);
+		$stmt -> bindParam(1,$nome);
+		$stmt -> bindParam(2,$area);
+		$stmt -> bindParam(3,$_POST["codigo"]);
+	}else{
 
+		$stmt = $conexao->prepare("insert into bairro (nome,area) values (?,?)");
+
+		$nome= $_POST["nome"]; 
+		$area= $_POST["area"];  
+
+		$stmt -> bindParam(1,$nome);
+		$stmt -> bindParam(2,$area);
+	}
 	$stmt->execute(); 
 
 	if($stmt->rowCount() >0){
-		echo '<script>
-		alert("Bairro cadastrado com sucesso!");
-		location.href="../bairro/index.php"
-	</script>';
-}else{
-	echo '<script>
-	alert("Erro ao cadastrar bairro!");
-	location.href="../bairro/index.php"
-</script>';
-}	
+		/*echo '<script>
+		alert("caso cadastrado com sucesso!");
+	</script>';*/
+	}else{
+	/*	echo '<script>
+		alert("Erro ao cadastrar caso!");
+	</script>';*/
+	}	
 
 
 }catch(PDOException $e){

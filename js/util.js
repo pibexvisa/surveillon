@@ -1,8 +1,44 @@
+/*Funcao generica para que qualquer busca da pagina trabalhe da 
+mesma forma*/
+function buscar(paginaBusca){
+	var datastring = $("#fBusca").serialize();
+	$.ajax({
+		  type: "POST",
+		  url: paginaBusca,
+		  data: datastring,
+		  dataType: "html",
+		  success: function(response) {
+		      $("#tabBusca").html(response);
+		  },
+		  error: function() {
+		      alert('Houve um erro.');
+		  }
+	});
+}
+
+function show_confirm(ncodigo,pagExclusao,pagVolta){
+    var excluir = confirm("Deseja Excluir este Item?");
+    if( excluir){
+		$.post(pagExclusao,
+			{codigo:ncodigo},
+			function(data,status){
+				if(status=="success"){
+					configAlerts("success","Exclusão realizada com sucesso!!");
+
+				}else{
+					configAlerts("danger","Erro na exclusão!");
+				}
+
+	 		});
+		carregaPagina(pagVolta);
+   }
+ }
+
+/*Carrega a pagina quando clicada no sidebar*/
 function carregaPagina(link){
-			//alert(link);
-			$("#conteudo").load(link);
-		}
-/**/
+	$("#conteudo").load(link);
+}
+/*Valida qualquer form que tiver o name fcadastrar*/
 function validaForm(){
 		var formulario = document.forms["fcadastrar"];
 		for(var i=0;i< formulario.elements.length;i++){
@@ -55,3 +91,15 @@ function configAlerts(status,mensagem){
  			$("#myAlert").slideUp(500);
 		});
 }
+
+/*function paginacaoBusca(totalLinhas,limite,curPage,hTextPrefix){
+
+	$('.pagination').pagination({
+        items: totalLinhas,
+        itemsOnPage: <limite,
+        cssStyle: 'light-theme',
+        currentPage : curPage,
+        hrefTextPrefix : hTextPrefix+'?page=';
+	});
+
+}*/
