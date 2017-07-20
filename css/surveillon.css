@@ -11,10 +11,11 @@
 .navbar-right > a.surveillon{
    color: #ffffff;
 }
-.nav-sidebar > .active.surveillon > a
-/*.nav-sidebar > .active  a,
-.nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus */{
+.nav-sidebar > .active.surveillon > a{
   color: #fff;
   background-color: #5ABEE4;
+}
+
+.row.list-group.busca.active{
+	background-color:#D3D3D3;
 }

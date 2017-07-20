@@ -20,7 +20,7 @@
 						<div class="col-md-3"><input type="text" name="nome" id='campoPesquisa' placeholder ="Digite o nome do caso..." class="input" onfocus="this.value=''"/> </div>
 							<div class="col-md-3">
 								<select name="competencia" id="competencia" class="form-control">
-			                  		<option value="">Selecione uma competência</option>
+			                  		<option value="">Todas as Competências</option>
 			                  		<option value="vs"> Vigilância Sanitária</option>
 			                  		<option value="va"> Vigilância Ambiental  </option>
 			                  		<option value="ve"> Vigilância Epidemiologica  </option>
@@ -34,16 +34,6 @@
 				</div>
 			</form> 
 
-
-
-			<div id="tabBusca" ><script>buscar("geral/casos/buscar_caso.php");</script></div> 
- 
-            <script type="text/javascript">
-
-
-							
-           </script>
-
-
+			<div id="tabBusca" ><script>buscar("geral/casos/buscar_caso.php");</script></div>
 
 

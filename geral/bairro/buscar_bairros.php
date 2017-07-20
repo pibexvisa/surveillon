@@ -23,31 +23,46 @@
      $stmt = $conexao->query ("select codigo,nome,area from bairro");
     }
 
-        echo '   
-           <table width=100% class="table table-striped">
-            <tr>
-              <td width= 10% align="center"><b>Nome</b></td>
-              <td width= 10% align="center"><b>Area</b></td>
+        echo "
+          <div class='all panel panel-success' id='resultBusca'>
+            <div class='row panel-heading'>
+              <div class='col-md-2'>
+                    <b>Área</b>
+                </div>
+                <div class='col-md-6'>
+                    <b>Nome</b>
+                </div>
+                <div class='col-md-2'>
+                    <img src='geral/img/exclui.png' width='40'>
+                </div>
+                <div class='col-md-2'>
+                    <img src='geral/img/alterar.png' width='40'>
+                </div>
+            </div>";
 
-              <td width=10% align="center"><img src="geral/img/exclui.png" width="40"> <a></td>
-              <td width=10% align="center"><img src="geral/img/alterar.png" width="40"> <a></td>
-            </tr>
-          </table> ';
+
         $stmt->execute();
 
         $resultado = $stmt->fetchAll();
+        $class="";
         foreach($resultado as $linha){
-          echo "
-          <table width=100% class='table table-striped'>
-           <tr> 
-             <td width=10%  align='center'><p > ".$linha['area']."</p></th>
-              <td width=10%  align='center'><p > ".$linha['nome']."</p></td>
+          echo "<div class='row list-group busca $class'>
+                  <div class='col-md-2'>".
+                       $linha['area']."
+                  </div>
+                  <div class='col-md-6'>".
+                       $linha['nome']."
+                  </div>
+                  <div class='col-md-2'>
+                    <a href='#' onclick=\"show_confirm('".$linha['codigo']."','geral/bairro/deletarbairro.php','geral/bairro/index.php');\">Excluir </a>
+                  </div>
+                  <div class='col-md-2'>
+                    <a href='#' onclick=\"carregaPagina('geral/bairro/cadastrarBairro.php?codigo=".$linha['codigo']."');\">Alterar </a>
+                  </div>
+                </div>";
 
-              <td  width=10% align='center'><a href='#' onclick=\"show_confirm(".$linha['codigo'].",'geral/bairro/deletarbairro.php','geral/bairro/index.php');\">Excluir <a></td>
-              <td width=10% align='center'><a href='#' onclick=\"carregaPagina('geral/bairro/cadastrarBairro.php?codigo=".$linha['codigo']."');\">Alterar <a></td>
-
-            </tr> 
-        </table> ";
-      }
-      
+                $class = ($class==""?"active":"");
+        }
+      echo "</div> 
+            <div id='pagi'></div>";
       ?> 

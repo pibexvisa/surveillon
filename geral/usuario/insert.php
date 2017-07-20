@@ -1,42 +1,64 @@
 <?php
-include ("../../conexao/conexao.php");
+include "../../conexao/conexao.php";
+$conexao->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
-$matricula = $_POST["matricula"];
-$senha = $_POST["senha"];
-$cpf = $_POST["cpf"];
-$nome = $_POST["nome"];
-$email = $_POST["email"];
-$telefone = $_POST["telefone"];
-$perfil = $_POST["perfil"];
+try{
+	
+	$matricula = $_POST["matricula"];
+	$senha = (isset($_POST["senha"])?$_POST["senha"]:"");
+	$cpf = $_POST["cpf"];
+	$nome = $_POST["nome"];
+	$email = $_POST["email"];
+	$telefone = $_POST["telefone"];
+	$perfil = $_POST["perfil"];
+	$codigo=(isset($_POST["codigo"])?$_POST["codigo"]:"");
 
-//echo $matricula.$senha.$nome.$cpf.$email.$telefone.$perfil;
+	if($codigo==""){
+		$senhaCripto = password_hash($senha,PASSWORD_DEFAULT);
+		$query = "insert into usuario (matricula, senha, cpf, nome, email, telefone, perfil) values (?,?,?,?,?,?,?)";
 
-$senhaCripto = password_hash($senha,PASSWORD_DEFAULT);
+		$stmt = $conexao->prepare($query);
 
-$stmt = $conexao->prepare("insert into usuario (matricula, senha, cpf, nome, email, telefone, perfil) values (?,?,?,?,?,?,?)");
+		$stmt -> bindParam(1,$matricula);
+		$stmt -> bindParam(2,$senhaCripto);
+		$stmt -> bindParam(3,$cpf);
+		$stmt -> bindParam(4,$nome);
+		$stmt -> bindParam(5,$email);
+		$stmt -> bindParam(6,$telefone);
+		$stmt -> bindParam(7,$perfil);
 
-$stmt -> bindParam(1,$matricula);
-$stmt -> bindParam(2,$senhaCripto);
-$stmt -> bindParam(3,$cpf);
-$stmt -> bindParam(4,$nome);
-$stmt -> bindParam(5,$email);
-$stmt -> bindParam(6,$telefone);
-$stmt -> bindParam(7,$perfil);
+	}else{
+		
+		$query = "update usuario set matricula =?, cpf=?, nome = ?, email=?, telefone=?, perfil=?";
 
-$stmt->execute(); 
+		
+		if($senha!=""){
+			$senhaCripto = password_hash($senha,PASSWORD_DEFAULT);
+			$query.=", senha=?";
+		}
 
-if($stmt->rowCount() >0){
-			 echo '<script>
-						alert("Usuário cadastrado com sucesso!");
-						location.href="../usuario/index.php"
-					</script>';
-			}else{
-			 echo '<script>
-						alert("Erro ao cadastrar usuário!");
-						location.href="../usuario/index.php"
-					</script>';
-			}
+		$query.=" where codigo = ?";
 
+		$stmt = $conexao->prepare($query);
+		$stmt -> bindParam(1,$matricula);
+		$stmt -> bindParam(2,$cpf);
+		$stmt -> bindParam(3,$nome);
+		$stmt -> bindParam(4,$email);
+		$stmt -> bindParam(5,$telefone);
+		$stmt -> bindParam(6,$perfil);
+		if($senha!=""){
+			$stmt -> bindParam(7,$senhaCripto);
+			$stmt -> bindParam(8,$codigo);
+		}else{
+			$stmt -> bindParam(7,$codigo);
+		}
+	}
+
+	$stmt->execute();
+
+}catch(PDOException $e){
+	echo 'ERROR: ' . $e->getMessage();
+}
 
 
 ?>

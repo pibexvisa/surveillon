@@ -31,16 +31,6 @@ try{
 	}
 	$stmt->execute(); 
 
-	if($stmt->rowCount() >0){
-		/*echo '<script>
-		alert("caso cadastrado com sucesso!");
-	</script>';*/
-	}else{
-	/*	echo '<script>
-		alert("Erro ao cadastrar caso!");
-	</script>';*/
-	}	
-
 
 }catch(PDOException $e){
 	echo 'ERROR: ' . $e->getMessage();

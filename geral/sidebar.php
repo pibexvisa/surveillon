@@ -16,7 +16,7 @@
 			<li <?php echoActiveClassIfRequestMatches("casos"); ?> onclick="carregaPagina('geral/casos/index.php');"><a href="#">Casos</a></li>
 			<li <?php echoActiveClassIfRequestMatches("bairro"); ?> onclick="carregaPagina('geral/bairro/index.php');"><a href="#">Bairros</a></li>
 			<li <?php echoActiveClassIfRequestMatches("visita"); ?>><a href="../visita/index.php">Visitas</a></li>
-                <li <?php echoActiveClassIfRequestMatches("usuario"); ?>><a href="../usuario/index.php">Usuários</a></li>
+            <li <?php echoActiveClassIfRequestMatches("bairro"); ?> onclick="carregaPagina('geral/usuario/index.php');"><a href="#">Usuários</a></li>
 		
 					</ul>
 </div>

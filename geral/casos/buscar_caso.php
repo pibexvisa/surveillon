@@ -24,45 +24,67 @@
 
     } 
 
-	echo '<table width=100% class="table table-striped">
-	        <tr>
-	          <td width=10% align="center"><b>Id</b></td>
-	          <td width= 10% align="center"><b>Nome</b></td>
-	          <td width= 10% align="center"><b>Competência</b></td>
-	          <td width=10% align="center"><img src="geral/img/exclui.png" width="40"> <a></td>
-	    	<td width=10% align="center"><img src="geral/img/alterar.png" width="40"> <a></td>
-		  	</tr>
-		  </table>';
-
+	echo "
+	<div class='all panel panel-success' id='resultBusca'>
+		<div class='row panel-heading'>
+			<div class='col-md-1'>
+		        <b>Id</b>
+		    </div>
+		    <div class='col-md-3'>
+		        <b>Nome</b>
+		    </div>
+		    <div class='col-md-3'>
+		        <b>Competência</b>
+		    </div>
+		    <div class='col-md-2'>
+		        <img src='geral/img/exclui.png' width='40'>
+		    </div>
+		    <div class='col-md-2'>
+		        <img src='geral/img/alterar.png' width='40'>
+		    </div>
+		</div>";
     $resultado = $stmt->fetchAll();
+    $cont=0; $class="";
+
 
     foreach($resultado as $linha){
-		echo "<table width=100% class='table table-striped'>
-       			<tr> 
-		          <td width=10%  align='center'><p>". $linha['codigo']." </p></th>
-		          <td width=10%  align='center'><p>". $linha['nome']."  </p></td>
-		          <td width=10% align='center'><p>";
-						switch($linha['competencia']){
-							case 'va':
-								echo 'Vigilância Ambiental';
-							break;
-							case 'vs':
-								echo 'Vigilância Sanitária';
-							break;
-							case 've':
-								echo 'Vigilância Epidemiológica';
-							break;
-							default:
-								echo 'Não reconhecido.';
-						}
-						echo "</p></td>
-		          <td  width=10% align='center'><a href='#' onclick=\"show_confirm('".$linha['codigo']."','geral/casos/deletar_caso.php','geral/casos/index.php');\">Excluir <a></td>
-		          <td width=10% align='center'><a href='#' onclick=\"carregaPagina('geral/casos/cadastrar_caso.php?codigo=".$linha['codigo']."');\">Alterar <a></td>
+    	$class = (($cont%2==0)?"":"active");
 
-        		</tr>
-    		</table> ";
-
+  echo 
+  	"<div class='row list-group busca $class'>
+	    <div class='col-md-1'>".
+	         $linha['codigo']."
+	    </div>
+	    <div class='col-md-3'>".
+	         $linha['nome']."
+	    </div>
+	    <div class='col-md-3'>";
+	     switch($linha['competencia']){
+			case 'va':
+				echo 'Vigilância Ambiental';
+			break;
+			case 'vs':
+				echo 'Vigilância Sanitária';
+			break;
+			case 've':
+				echo 'Vigilância Epidemiológica';
+			break;
+			default:
+				echo 'Não reconhecido';
+		}
+		echo "
+	    </div>
+	    <div class='col-md-2'>
+	    	<a href='#' onclick=\"show_confirm('".$linha['codigo']."','geral/casos/deletar_caso.php','geral/casos/index.php');\">Excluir </a>
+	    </div>
+	    <div class='col-md-2'>
+	    	<a href='#' onclick=\"carregaPagina('geral/casos/cadastrar_caso.php?codigo=".$linha['codigo']."');\">Alterar </a>
+	    </div>
+  	</div>";
+  	$cont++;
 
     }  
-
+echo "</div> 
+<div id='pagi'></div>";
 ?>
+

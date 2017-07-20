@@ -20,7 +20,7 @@
 						<div class="col-md-3"><input type="text" name="nome" id='campoPesquisa' placeholder ="Digite o nome do bairo..." class="input" onfocus="this.value=''"/> </div>
 							<div class="col-md-3">
 								<select name="area" id="area" class="form-control">
-			                  		<option value="">Selecione uma área</option>
+			                  		<option value="">Todas as áreas</option>
 			                  		<option value="1">1</option>
 			                  		<option value="2">2 </option>
 			                  		<option value="3">3</option>
