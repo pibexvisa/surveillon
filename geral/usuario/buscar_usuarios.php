@@ -1,29 +1,31 @@
  <?php
     include '../../conexao/conexao.php'; /* include da conexão com o baco de dados */
+
+    $perfil = ""; $matricula="";$nome="";
     
     if (isset($_POST["nome"]) || isset($_POST["matricula"]) || isset($_POST["perfil"])){
-      $query = "select codigo, nome, matricula, perfil from usuario where nome like ? ";
+      $query = "select codigo, nome, matricula, perfil from usuario where nome like :nome ";
       
       $nome= (isset($_POST["nome"])?$_POST["nome"]:"");
       $matricula =    (isset($_POST["matricula"])?$_POST["matricula"]:"");
       $perfil =    (isset($_POST["perfil"])?$_POST["perfil"]:"");
 
       if($matricula!="")
-        $query .= " AND matricula = ?";
+        $query .= " AND matricula = :matricula";
 
       if($perfil!="")
-        $query .= " AND perfil = ?";
+        $query .= " AND perfil = :perfil";
 
       $query .= " order by nome";
       
       $stmt = $conexao->prepare($query); 
-      $stmt->bindValue(1,"%" .$nome ."%");
+      $stmt->bindValue(":nome","%" .$nome ."%");
 
       if($matricula!="")
-        $stmt->bindValue(2,$matricula);
+        $stmt->bindValue(":matricula",$matricula);
 
       if($perfil!="")
-         $stmt->bindValue(3,$perfil);
+         $stmt->bindValue(":perfil",$perfil);
 
     }else{
 
