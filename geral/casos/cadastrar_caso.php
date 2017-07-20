@@ -1,43 +1,43 @@
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script>
 
-			$("#bt_cadastrar").click(function(event){
+      $("#bt_cadastrar").click(function(event){
 
-				 if(validaForm()){
-					 $.post("geral/casos/insert_caso.php",
-						{nome: $("#nome").val(),competencia: $("#competencia").val(),descricao:$("#descricao").val(),codigo:$("#codigo").val()},
-						function(data,status){
+         if(validaForm()){
+           $.post("geral/casos/insert_caso.php",
+            {nome: $("#nome").val(),competencia: $("#competencia").val(),descricao:$("#descricao").val(),codigo:$("#codigo").val()},
+            function(data,status){
 
-							if(status=="success"){
-								if($("#codigo").val()=="")
-									mensagem="Cadastro realizado com sucesso!!";
-								else
-									mensagem="Atualização realizada com sucesso!!";
+              if(status=="success"){
+                if($("#codigo").val()=="")
+                  mensagem="Cadastro realizado com sucesso!!";
+                else
+                  mensagem="Atualização realizada com sucesso!!";
 
-								configAlerts("success",mensagem);
-						
-							}else{
-								configAlerts("danger","Erro no cadastro!");
-							}
-						
-				 	});
-				}else{
-					configAlerts("warning","Atenção!! Preencha os campos obrigatórios.");
-					
-				}
-				return false;
-			});
+                configAlerts("success",mensagem);
+            
+              }else{
+                configAlerts("danger","Erro no cadastro!");
+              }
+            
+          });
+        }else{
+          configAlerts("warning","Atenção!! Preencha os campos obrigatórios.");
+          
+        }
+        return false;
+      });
 
-		
+    
 
-	</script>
+  </script>
 
    <div class="container-fluid">
     <div class="row">
      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <h1 class="page-header">Casos</h1>
-			<div style="display:none;" id="myAlert">
-			</div>
+      <div style="display:none;" id="myAlert">
+      </div>
       <h4 class="sub-header"><?php echo(isset($_GET["codigo"])?"Alterar Caso":"Novo Caso");?></h4>
       <!--Incluir codigo aqui-->
       <div class="table-responsive">
@@ -45,23 +45,23 @@
           <div class="margimformadm">
             <h1 class="hidden"><span id="logo">CADASTRAMENTO DE CASOS</span></h1>
 
-				<?php 
-					$nome=""; $competencia=""; $descricao="";$codigo="";
-					if(isset($_GET["codigo"])){
-						include "../../conexao/conexao.php";
-						$stmt = $conexao->prepare("select codigo,nome,competencia,descricao from caso where codigo = ?");
-						$codigo= $_GET["codigo"]; 
-						$stmt->bindValue(1,$codigo);
-						$stmt->execute();
-						$resultado = $stmt->fetchAll();
-						foreach($resultado as $linha){
-							$nome=$linha["nome"];
-							$competencia=$linha["competencia"];
-							$descricao=$linha["descricao"];
-						}
-				}
-				?>
-				<input type='hidden' value='<?php echo $codigo;?>' name='codigo' id='codigo'>
+        <?php 
+          $nome=""; $competencia=""; $descricao="";$codigo="";
+          if(isset($_GET["codigo"])){
+            include "../../conexao/conexao.php";
+            $stmt = $conexao->prepare("select codigo,nome,competencia,descricao from caso where codigo = ?");
+            $codigo= $_GET["codigo"]; 
+            $stmt->bindValue(1,$codigo);
+            $stmt->execute();
+            $resultado = $stmt->fetchAll();
+            foreach($resultado as $linha){
+              $nome=$linha["nome"];
+              $competencia=$linha["competencia"];
+              $descricao=$linha["descricao"];
+            }
+        }
+        ?>
+        <input type='hidden' value='<?php echo $codigo;?>' name='codigo' id='codigo'>
             <center><fieldset style=" width:600px"><table  class="table table-striped" border="0">
               <tr>
 
@@ -91,11 +91,11 @@
               </td>
             </tr>
             <table class="table table-striped">
-                	<tr>
-                  	<td><input type="submit" value ="<?php echo(isset($_GET["codigo"])?"Alterar":" Cadastrar");?>" id="bt_cadastrar" class="btn btn-md btn-primary btn-block"></td>
-                	  <td><a id="cancelar" href="#" onclick="carregaPagina('geral/casos/index.php');" class="btn btn-md btn-default btn-block">Cancelar</a></td>
-                	</tr>
-			</table>
+                  <tr>
+                    <td><input type="submit" value ="<?php echo(isset($_GET["codigo"])?"Alterar":" Cadastrar");?>" id="bt_cadastrar" class="btn btn-md btn-primary btn-block"></td>
+                    <td><a id="cancelar" href="#" onclick="carregaPagina('geral/casos/index.php');" class="btn btn-md btn-default btn-block">Cancelar</a></td>
+                  </tr>
+      </table>
           </table></fieldset></center>
         </form> 
       </div>

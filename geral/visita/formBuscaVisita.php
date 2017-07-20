@@ -10,7 +10,7 @@
 		
 		<table border=0>
 			<tr>
-				<td><input type="text" name="nome" value="Digite sua pesquisa aqui..." class="input" onfocus="this.value=''";/></td>
+				<td><input type="text" name="nome" value="Digite uma matricula válida" class="input" onfocus="this.value=''";/></td>
 				<td width=30%><input type="submit" class="btn btn-lg btn-success btn-block" value="Buscar"></td>
 			</tr>
 		</table>
