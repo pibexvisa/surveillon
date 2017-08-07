@@ -8,10 +8,10 @@
 include "../../conexao/conexao.php";  
 try{
 	$stmt = $conexao->prepare("delete from visita where codigo = ?");
-	$cod_caso= $_GET["codigo"]; 
+	$cod_caso= $_POST["codigo"]; 
 	$stmt -> bindParam(1,$cod_caso);    
 	$stmt->execute(); 
-
+	/*
 	if($stmt->rowCount() >0){
 		echo '<script>
 		alert("Visita excluida com sucesso!");
@@ -22,7 +22,7 @@ try{
 	alert("Erro ao excluir a visita!");
 	location.href="../visita/index.php"
 </script>';
-}	
+}*/	
 }catch(PDOException $e){
 	echo 'ERROR: ' . $e->getMessage();
 }
