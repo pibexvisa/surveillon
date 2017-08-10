@@ -92,7 +92,7 @@ $("#bt_cadastrar").click(function(event){
 				<tr>
                   <td><b>Observação:*</b></td>
                   <td>
-                    <textarea name="observacao" id="observacao" rows="4" cols="50" maxlength="200" class="form-control" ><?php echo $observacao;?></textarea> 
+                    <textarea name="observacao" rows="4" cols="50" maxlength="200" class="form-control" ><?php echo $observacao;?></textarea> 
                   </td>
                 </tr>
 				</table>
