@@ -18,26 +18,25 @@
         <div class="container">
           <div class="row">
             <div class="col-md-3">
-			<label>Data 01:</label>
-            <input type="text" name="data1" id='campoPesquisa' placeholder ="Data 01" class="input" onfocus="this.value=''"/> 
+			       <label>Data Inicial:</label>
+            <input type="text" name="data1" id='data1' placeholder ="Data Inicial" class="input" onfocus="this.value=''" style="width: 100px;"/> 
 			
             </div>
-			
             <div class="col-md-3">
-			<label>Agente:</label>
-            <input type="text" name="nome" id='campoPesquisa' placeholder ="Digite o nome do agente" class="input" onfocus="this.value=''"/>
-			
+              <label>Data Final:</label>
+              <input type="text" name="data2" id='data2' placeholder ="Data Final" class="input" onfocus="this.value=''" style="width: 100px;"/>
             </div>
-              <div class="col-md-3"> 
-                <button onclick="buscar('geral/visita/buscar_visita.php');" class="btn btn-md btn-success btn-block">Buscar</button>
-                <div class="col-md-3"></div>
+            <div class="col-md-3">
+			       <label>Agente:</label>
+              <input type="text" name="nome" id='nome' placeholder ="Digite o nome do agente" class="input" onfocus="this.value=''" style="width: 150px;"/>
+            </div>
+            <div class="col-md-2"> 
+                <button onclick="buscar('geral/visita/buscar_visita.php');" class="btn btn-md btn-success">Buscar</button>
               </div>
-				<div class="col-md-6">
-				<label>Data 02:</label>
-            			<input type="text" name="data2" id='campoPesquisa' placeholder ="data2" class="input" onfocus="this.value=''"/>
-            		</div>
-           </div>
-        </div>
+            <div class="col-md-4"></div>
+          </div>
+        </div>    
+				
       </form> 
 
 
