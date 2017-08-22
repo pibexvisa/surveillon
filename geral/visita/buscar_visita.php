@@ -17,20 +17,49 @@
      }
  }
 
-	if ($_POST["nome"] != null){
-      $query = "select visita.codigo,visita.matricula_usuario,usuario.nome,visita.data,visita.hora from visita inner join usuario on visita.matricula_usuario = usuario.matricula and usuario.matricula= visita.matricula_usuario where usuario.nome like ?";
-      
-      $nome= (isset($_POST["nome"])?$_POST["nome"]:"");
-	  
+  $query = "select visita.codigo,visita.matricula_usuario,usuario.nome,visita.data,visita.hora from visita inner join usuario on visita.matricula_usuario = usuario.matricula and usuario.matricula= visita.matricula_usuario where nome like ?";
+
+  $nome="";
+
+  $nome= (isset($_POST["nome"])?$_POST["nome"]:"");
+
+  if(trim($_POST["data1"])!="" || trim($_POST["data2"])!=""){
+    
+    if(trim($_POST["data1"])!="" && trim($_POST["data2"])!=""){
+      $query.=" and visita.data between ? and ?";
+
+      $data1= (isset($_POST["data1"])?$_POST["data1"]:"");
+      $data2= (isset($_POST["data2"])?$_POST["data2"]:"");
+        
       $stmt = $conexao->prepare($query); 
       $stmt->bindValue(1, "%".$nome."%");
-	  
-	
-	}else if (isset($_POST["data1"])&&($_POST["data2"])){
+      $stmt->bindValue(2, inverteData2($data1));
+      $stmt->bindValue(3, inverteData2($data2));
+
+
+    }else{
+      if(trim($_POST["data1"])!=""){
+        $query.=" and visita.data = ?";
+
+        $data1= (isset($_POST["data1"])?$_POST["data1"]:"");
+          
+        $stmt = $conexao->prepare($query); 
+        $stmt->bindValue(1, "%".$nome."%");
+        $stmt->bindValue(2, inverteData2($data1));
+      }
+    }
+  }else{
+      $stmt = $conexao->prepare($query); 
+      $stmt->bindValue(1, "%".$nome."%");
+  }
+
+
+
+  /*else if (isset($_POST["data1"])&&($_POST["data2"])){
       $query = "select visita.codigo,visita.matricula_usuario,usuario.nome,visita.data,visita.hora from visita inner join usuario on visita.matricula_usuario = usuario.matricula and usuario.matricula= visita.matricula_usuario where visita.data between ? and ? ";
       
       $data1= (isset($_POST["data1"])?$_POST["data1"]:"");
-	  $data2= (isset($_POST["data2"])?$_POST["data2"]:"");
+	    $data2= (isset($_POST["data2"])?$_POST["data2"]:"");
       
       $stmt = $conexao->prepare($query); 
       $stmt->bindValue(1, inverteData2($data1));
@@ -38,7 +67,7 @@
 
     }else{
      $stmt = $conexao->query ("select visita.codigo,visita.matricula_usuario,usuario.nome,visita.data,visita.hora from visita inner join usuario on visita.matricula_usuario = usuario.matricula and usuario.matricula= visita.matricula_usuario");
-    }
+    }*/
         echo "
           <div class='all panel panel-success' id='resultBusca'>
             <div class='row panel-heading'>
