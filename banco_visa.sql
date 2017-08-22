@@ -50,10 +50,31 @@ hora TIME NOT NULL,
 observacao TEXT NOT NULL,
 matricula_usuario VARCHAR(10),
 CONSTRAINT usuario_visita_fk FOREIGN KEY (matricula_usuario) REFERENCES usuario (matricula)
-)ENGINE=InnoDB AUTO_INCREMENT=200 DEFAULT CHARSET=utf8; 
+)ENGINE=InnoDB AUTO_INCREMENT=200 DEFAULT CHARSET=utf8;
 
 
-
+create table denuncia(protocolo varchar(30)  not null primary key,
+nome_solicitante varchar(50) not null,
+data_solicitacao date,
+logradouro varchar(50) not null,
+numero int(4) not null,
+area int(5) not null,
+competencia varchar(50) not null,
+situacao varchar(20) not null,
+data_atendimento date,
+pendencias varchar(255) not null,
+observacoes text not null,
+parecer varchar(255) not null,
+nome_responsavel varchar(50) not null,
+rg_responsavel varchar(11) not null,
+cod_bairro int(5) not null,
+cod_caso int(5) not null,
+recebido_usuario varchar(50) not null,
+CONSTRAINT bairro_denuncia_fk FOREIGN KEY (cod_bairro) REFERENCES bairro (codigo),
+CONSTRAINT caso_denuncia_fk FOREIGN KEY (cod_caso) REFERENCES caso (codigo),
+CONSTRAINT usuario_denuncia_fk FOREIGN KEY (recebido_usuario) REFERENCES usuario(matricula)	
+)ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ 
 
 Insert into usuario (matricula, senha, cpf, nome, email, telefone,perfil) 
 values 
