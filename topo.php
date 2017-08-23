@@ -9,6 +9,14 @@
             <span class="icon-bar"></span>
           </button>
 					<?php
+					function echoActiveClassIfRequestMatches($requestUri)
+					{	
+					    $current_file_name =basename(dirname($_SERVER['REQUEST_URI']));
+							
+					    if ($current_file_name == $requestUri)
+					        echo 'class = "active surveillon"';
+					}
+	
 					function echoDisableLink($requestUri)
 					{	
 						 $current_file_name =basename($_SERVER['REQUEST_URI'],".php");
@@ -26,17 +34,14 @@
 							$current_module = "Geral";
 						break;
 					}
-					
-					
 					?>
           <a class="navbar-brand surveillon" href="../inicio.php">Surveillon Camará - <?=$current_module;?></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="surveillon"; href="http://getbootstrap.com/examples/dashboard/#">Fulano</a></li>
-						<li><a href="inicio.php" <?php echoDisableLink("inicio");?>>Início</a></li>
-            <li><a href="sobre.php" <?php echoDisableLink("sobre");?>>Sobre o Surveillon</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">Sair</a></li>
+            <li><a class="surveillon"; href="http://getbootstrap.com/examples/dashboard/#"><?php echo "<b> Usuário: </b>".$_SESSION["nome"]."-".$_SESSION["matricula"]." <b>&nbsp;&nbsp;Perfil:</b>".($_SESSION["perfil"]=="adm"?"Administrador":"Comum");?></a></li>
+            <li onclick="carregaPagina('sobre.php');"><a href="#">Sobre o Surveillon</a></li>
+            <li><a href="logout.php">Sair</a></li>
           </ul>
 
         </div>

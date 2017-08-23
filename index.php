@@ -36,6 +36,12 @@
     </head>
 
     <body>
+    <?php
+      session_start();
+      if(!isset($_SESSION["matricula"])){
+        header("Location: login.php");
+      }
+    ?>
 
       <!--Topo do Sistema-->
       <?php include("topo.php");?>
