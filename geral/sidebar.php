@@ -9,7 +9,7 @@
 	?>
 <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li <?php echoActiveClassIfRequestMatches("denuncias"); ?>><a href="#" onclick="carregaPagina('mod_denuncias/denuncias.php');">Denúncias <span class="sr-only">(current)</span></a></li>
+            <li <?php echoActiveClassIfRequestMatches("denuncias"); ?> onclick="carregaPagina('mod_denuncias/denuncias.php');"><a href="#" >Denúncias</a></li>
           </ul>
 					<ul class="nav nav-sidebar">
 			<li style="background-color:#cccccc;text-align:center;">Admin</li>
