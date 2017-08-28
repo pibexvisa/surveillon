@@ -43,16 +43,6 @@ primary key(codigo)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 
-create table  visita(
-codigo INT PRIMARY KEY AUTO_INCREMENT,
-data DATE NOT NULL,
-hora TIME NOT NULL,
-observacao TEXT NOT NULL,
-matricula_usuario VARCHAR(10),
-CONSTRAINT usuario_visita_fk FOREIGN KEY (matricula_usuario) REFERENCES usuario (matricula)
-)ENGINE=InnoDB AUTO_INCREMENT=200 DEFAULT CHARSET=utf8;
-
-
 create table denuncia(
 protocolo_id varchar(10) not null,
 protocolo_ano int not null,
@@ -76,7 +66,19 @@ CONSTRAINT bairro_denuncia_fk FOREIGN KEY (cod_bairro) REFERENCES bairro (codigo
 CONSTRAINT caso_denuncia_fk FOREIGN KEY (cod_caso) REFERENCES caso (codigo),
 CONSTRAINT usuario_denuncia_fk FOREIGN KEY (recebido_usuario) REFERENCES usuario(matricula)	
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
- 
+
+
+create table  visita(
+codigo INT PRIMARY KEY AUTO_INCREMENT,
+data DATE NOT NULL,
+hora TIME NOT NULL,
+observacao TEXT NOT NULL,
+matricula_usuario VARCHAR(10),
+id_denuncia varchar(10),
+CONSTRAINT usuario_visita_fk FOREIGN KEY (matricula_usuario) REFERENCES usuario (matricula),
+CONSTRAINT denuncia_visita_fk FOREIGN KEY (id_denuncia) REFERENCES denuncia (protocolo_id)
+)ENGINE=InnoDB AUTO_INCREMENT=200 DEFAULT CHARSET=utf8;
+
 
 Insert into usuario (matricula, senha, cpf, nome, email, telefone,perfil) 
 values 
