@@ -17,7 +17,7 @@
      }
  }
 
-  $query = "select visita.codigo,visita.matricula_usuario,usuario.nome,visita.data,visita.hora from visita inner join usuario on visita.matricula_usuario = usuario.matricula and usuario.matricula= visita.matricula_usuario where nome like ?";
+  $query = "select visita.codigo,visita.matricula_usuario,usuario.nome,visita.data,visita.hora,visita.id_denuncia from visita inner join usuario on visita.matricula_usuario = usuario.matricula and usuario.matricula= visita.matricula_usuario where nome like ?";
 
   $nome="";
 
@@ -74,6 +74,9 @@
               <div class='col-md-2'>
                     <b>Matricula</b>
                 </div>
+				<div class='col-md-2'>
+                    <b>Id Denúncia</b>
+                </div>
 		<div class='col-md-2'>
                     <b>Agente</b>
                 </div>
@@ -83,10 +86,10 @@
                 <div class='col-md-2'>
                     <b>Data</b>
                 </div>
-                <div class='col-md-2'>
+                <div class='col-md-1'>
                     <img src='geral/img/exclui.png' width='40'>
                 </div>
-                <div class='col-md-2'>
+                <div class='col-md-1'>
                     <img src='geral/img/alterar.png' width='40'>
                 </div>
             </div>";
@@ -98,6 +101,9 @@
 		 <div class='col-md-2'>".
                        $linha['matricula_usuario']."
                   </div>
+					<div class='col-md-2'>".
+                       $linha['id_denuncia']."
+                  </div>     
                   <div class='col-md-2'>".
                        $linha['nome']."
                   </div>
@@ -107,10 +113,10 @@
                   <div class='col-md-2'>".
                        date("d/m/Y", strtotime($linha['data']))."
                   </div>
-                  <div class='col-md-2'>
+                  <div class='col-md-1'>
                     <a href='#' onclick=\"show_confirm('".$linha['codigo']."','geral/visita/deletar_visita.php','geral/visita/index.php');\">Excluir </a>
                   </div>
-                  <div class='col-md-2'>
+                  <div class='col-md-1'>
                     <a href='#' onclick=\"carregaPagina('geral/visita/cadastrar_visita.php?codigo=".$linha['codigo']."');\">Alterar </a>
                   </div>
                 </div>";
