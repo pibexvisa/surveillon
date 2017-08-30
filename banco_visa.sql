@@ -52,6 +52,7 @@ logradouro varchar(50) not null,
 numero int(4) not null,
 area int(5) not null,
 competencia varchar(50) not null,
+surto boolean not null,
 situacao varchar(20) not null,
 data_atendimento date,
 pendencias varchar(255),
@@ -82,7 +83,6 @@ CONSTRAINT denuncia_visita_fk FOREIGN KEY (id_denuncia) REFERENCES denuncia (pro
 
 Insert into usuario (matricula, senha, cpf, nome, email, telefone,perfil) 
 values 
- ('TIJG5289','1234','08807706659','Pedro Lima','adm@visa.com','8198130844','Administrador'),
- ('TIJG5285','2222','088077124547','Aline Silva','funconario@visa.com','8192130448','Administrador');
-
+ ('TIJG5289','1234','09908807715','Pedro Lima','adm@visa.com','8198130844','Administrador'),
+ ('TIJG5285','2222','08807712454','Aline Silva','funconario@visa.com','8192130448','Administrador');
 
